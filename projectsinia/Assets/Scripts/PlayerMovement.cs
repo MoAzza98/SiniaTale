@@ -51,6 +51,8 @@ public class PlayerMovement : MonoBehaviour
 
 	[Header("Layers & Tags")]
 	[SerializeField] private LayerMask _groundLayer;
+	private SquashStretch snsAnim;
+	private float targetLerpSet;
 	#endregion
 
 	private void Awake()
@@ -63,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
 		SetGravityScale(Data.gravityScale);
 		IsFacingRight = true;
 		bonusJumpsLeft = Data.bonusJumps;
+		snsAnim = GetComponentInChildren<SquashStretch>();
 	}
 
 	private void Update()
@@ -80,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
 		_moveInput.x = Input.GetAxisRaw("Horizontal");
 		_moveInput.y = Input.GetAxisRaw("Vertical");
 
-		Debug.Log("Current input:" + _moveInput.y);
+		//Debug.Log("Current input:" + _moveInput.y);
 
 		if (_moveInput.x != 0)
 			CheckDirectionToFace(_moveInput.x > 0);
@@ -149,6 +152,7 @@ public class PlayerMovement : MonoBehaviour
 			_isJumpCut = false;
 			_isJumpFalling = false;
 			Jump();
+			snsAnim.SquashStretchEffect(snsAnim.jumpStretch);
 		}
 		//WALL JUMP
 		else if (CanWallJump() && LastPressedJumpTime > 0)
@@ -161,6 +165,7 @@ public class PlayerMovement : MonoBehaviour
 			_lastWallJumpDir = (LastOnWallRightTime > 0) ? -1 : 1;
 
 			WallJump(_lastWallJumpDir);
+			snsAnim.SquashStretchEffect(snsAnim.jumpStretch);
 		}
 		//DOUBLE JUMP
 		else if(bonusJumpsLeft > 0 && LastPressedJumpTime > 0)
@@ -173,7 +178,8 @@ public class PlayerMovement : MonoBehaviour
 			bonusJumpsLeft--;
 			
 			Jump();
-        }
+			snsAnim.SquashStretchEffect(snsAnim.jumpStretch);
+		}
 		#endregion
 
 		#region SLIDE CHECKS
@@ -338,6 +344,7 @@ public class PlayerMovement : MonoBehaviour
 			force -= RB.velocity.y;
 
 		RB.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+		snsAnim.targetLerp = snsAnim.targetLerp == 0 ? 1 : 0;
 		#endregion
 	}
 
@@ -362,6 +369,7 @@ public class PlayerMovement : MonoBehaviour
 		//Unlike in the run we want to use the Impulse mode.
 		//The default mode will apply are force instantly ignoring masss
 		RB.AddForce(force, ForceMode2D.Impulse);
+		snsAnim.targetLerp = snsAnim.targetLerp == 0 ? 1 : 0;
 		#endregion
 	}
 	#endregion

@@ -1,0 +1,1251 @@
+fileFormatVersion: 2
+guid: 981accb90ceaf49418faa411e1ee6a2c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Doors1_0
+  - first:
+      213: 21300002
+    second: Doors1_1
+  - first:
+      213: 21300004
+    second: Doors1_2
+  - first:
+      213: 21300006
+    second: Doors1_3
+  - first:
+      213: 21300008
+    second: Doors1_4
+  - first:
+      213: 21300010
+    second: Doors1_5
+  - first:
+      213: 21300012
+    second: Doors1_6
+  - first:
+      213: 21300014
+    second: Doors1_7
+  - first:
+      213: 21300016
+    second: Doors1_8
+  - first:
+      213: 21300018
+    second: Doors1_9
+  - first:
+      213: 21300020
+    second: Doors1_10
+  - first:
+      213: 21300022
+    second: Doors1_11
+  - first:
+      213: 21300024
+    second: Doors1_12
+  - first:
+      213: 21300026
+    second: Doors1_13
+  - first:
+      213: 21300028
+    second: Doors1_14
+  - first:
+      213: 21300030
+    second: Doors1_15
+  - first:
+      213: 21300032
+    second: Doors1_16
+  - first:
+      213: 21300034
+    second: Doors1_17
+  - first:
+      213: 21300036
+    second: Doors1_18
+  - first:
+      213: 21300038
+    second: Doors1_19
+  - first:
+      213: 21300040
+    second: Doors1_20
+  - first:
+      213: 21300042
+    second: Doors1_21
+  - first:
+      213: 21300044
+    second: Doors1_22
+  - first:
+      213: 21300046
+    second: Doors1_23
+  - first:
+      213: 21300048
+    second: Doors1_24
+  - first:
+      213: 21300050
+    second: Doors1_25
+  - first:
+      213: 21300052
+    second: Doors1_26
+  - first:
+      213: 21300054
+    second: Doors1_27
+  - first:
+      213: 21300056
+    second: Doors1_28
+  - first:
+      213: 21300058
+    second: Doors1_29
+  - first:
+      213: 21300060
+    second: Doors1_30
+  - first:
+      213: 21300062
+    second: Doors1_31
+  - first:
+      213: 21300064
+    second: Doors1_32
+  - first:
+      213: 21300066
+    second: Doors1_33
+  - first:
+      213: 21300068
+    second: Doors1_34
+  - first:
+      213: 21300070
+    second: Doors1_35
+  - first:
+      213: 21300072
+    second: Doors_pixel_art_animation01_0
+  - first:
+      213: 21300074
+    second: Doors_pixel_art_animation01_1
+  - first:
+      213: 21300076
+    second: Doors_pixel_art_animation01_2
+  - first:
+      213: 21300078
+    second: Doors_pixel_art_animation01_3
+  - first:
+      213: 21300080
+    second: Doors_pixel_art_animation01_4
+  - first:
+      213: 21300082
+    second: Doors_pixel_art_animation01_5
+  - first:
+      213: 21300084
+    second: Doors_pixel_art_animation01_6
+  - first:
+      213: 21300086
+    second: Doors_pixel_art_animation01_7
+  - first:
+      213: 21300088
+    second: Doors_pixel_art_animation01_8
+  - first:
+      213: 21300090
+    second: Doors_pixel_art_animation01_9
+  - first:
+      213: 21300092
+    second: Doors_pixel_art_animation01_10
+  - first:
+      213: 21300094
+    second: Doors_pixel_art_animation01_11
+  - first:
+      213: 21300096
+    second: Doors_pixel_art_animation01_12
+  - first:
+      213: 21300098
+    second: Doors_pixel_art_animation01_13
+  - first:
+      213: 21300100
+    second: Doors_pixel_art_animation01_14
+  - first:
+      213: 21300102
+    second: Doors_pixel_art_animation01_15
+  - first:
+      213: 21300104
+    second: Doors_pixel_art_animation01_16
+  - first:
+      213: 21300106
+    second: Doors_pixel_art_animation01_17
+  - first:
+      213: 21300108
+    second: Doors_pixel_art_animation01_18
+  - first:
+      213: 21300110
+    second: Doors_pixel_art_animation01_19
+  - first:
+      213: 21300112
+    second: Doors_pixel_art_animation01_20
+  - first:
+      213: 21300114
+    second: Doors_pixel_art_animation01_21
+  - first:
+      213: 21300116
+    second: Doors_pixel_art_animation01_22
+  - first:
+      213: 21300118
+    second: Doors_pixel_art_animation01_23
+  - first:
+      213: 21300120
+    second: Doors_pixel_art_animation01_24
+  - first:
+      213: 21300122
+    second: Doors_pixel_art_animation01_25
+  - first:
+      213: 21300124
+    second: Doors_pixel_art_animation01_26
+  - first:
+      213: 21300126
+    second: Doors_pixel_art_animation01_27
+  - first:
+      213: 21300128
+    second: Doors_pixel_art_animation01_28
+  - first:
+      213: 21300130
+    second: Doors_pixel_art_animation01_29
+  - first:
+      213: 21300132
+    second: Doors_pixel_art_animation01_30
+  - first:
+      213: 21300134
+    second: Doors_pixel_art_animation01_31
+  - first:
+      213: 21300136
+    second: Doors_pixel_art_animation01_32
+  - first:
+      213: 21300138
+    second: Doors_pixel_art_animation01_33
+  - first:
+      213: 21300140
+    second: Doors_pixel_art_animation01_34
+  - first:
+      213: 21300142
+    second: Doors_pixel_art_animation01_35
+  - first:
+      213: 21300144
+    second: Village_Doors_pixel_art_animation01_0
+  - first:
+      213: 21300146
+    second: Village_Doors_pixel_art_animation01_1
+  - first:
+      213: 21300148
+    second: Village_Doors_pixel_art_animation01_2
+  - first:
+      213: 21300150
+    second: Village_Doors_pixel_art_animation01_3
+  - first:
+      213: 21300152
+    second: Village_Doors_pixel_art_animation01_4
+  - first:
+      213: 21300154
+    second: Village_Doors_pixel_art_animation01_5
+  - first:
+      213: 21300156
+    second: Village_Doors_pixel_art_animation01_6
+  - first:
+      213: 21300158
+    second: Village_Doors_pixel_art_animation01_7
+  - first:
+      213: 21300160
+    second: Village_Doors_pixel_art_animation01_8
+  - first:
+      213: 21300162
+    second: Village_Doors_pixel_art_animation01_9
+  - first:
+      213: 21300164
+    second: Village_Doors_pixel_art_animation01_10
+  - first:
+      213: 21300166
+    second: Village_Doors_pixel_art_animation01_11
+  - first:
+      213: 21300168
+    second: Village_Doors_pixel_art_animation01_12
+  - first:
+      213: 21300170
+    second: Village_Doors_pixel_art_animation01_13
+  - first:
+      213: 21300172
+    second: Village_Doors_pixel_art_animation01_14
+  - first:
+      213: 21300174
+    second: Village_Doors_pixel_art_animation01_15
+  - first:
+      213: 21300176
+    second: Village_Doors_pixel_art_animation01_16
+  - first:
+      213: 21300178
+    second: Village_Doors_pixel_art_animation01_17
+  - first:
+      213: 21300180
+    second: Village_Doors_pixel_art_animation01_18
+  - first:
+      213: 21300182
+    second: Village_Doors_pixel_art_animation01_19
+  - first:
+      213: 21300184
+    second: Village_Doors_pixel_art_animation01_20
+  - first:
+      213: 21300186
+    second: Village_Doors_pixel_art_animation01_21
+  - first:
+      213: 21300188
+    second: Village_Doors_pixel_art_animation01_22
+  - first:
+      213: 21300190
+    second: Village_Doors_pixel_art_animation01_23
+  - first:
+      213: 21300192
+    second: Village_Doors_pixel_art_animation01_24
+  - first:
+      213: 21300194
+    second: Village_Doors_pixel_art_animation01_25
+  - first:
+      213: 21300196
+    second: Village_Doors_pixel_art_animation01_26
+  - first:
+      213: 21300198
+    second: Village_Doors_pixel_art_animation01_27
+  - first:
+      213: 21300200
+    second: Village_Doors_pixel_art_animation01_28
+  - first:
+      213: 21300202
+    second: Village_Doors_pixel_art_animation01_29
+  - first:
+      213: 21300204
+    second: Village_Doors_pixel_art_animation01_30
+  - first:
+      213: 21300206
+    second: Village_Doors_pixel_art_animation01_31
+  - first:
+      213: 21300208
+    second: Village_Doors_pixel_art_animation01_32
+  - first:
+      213: 21300210
+    second: Village_Doors_pixel_art_animation01_33
+  - first:
+      213: 21300212
+    second: Village_Doors_pixel_art_animation01_34
+  - first:
+      213: 21300214
+    second: Village_Doors_pixel_art_animation01_35
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 48
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 935
+        width: 42
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a744286f4eeb1748a00926e061deacc
+      internalID: 21300144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 935
+        width: 42
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32f42dd0f603f87408f2856d22c18182
+      internalID: 21300146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_2
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 935
+        width: 42
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7eaf6d9b23281544e930693ca68cfa89
+      internalID: 21300148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_3
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 935
+        width: 42
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51456cb20fbf6aa44b47a679d935faf1
+      internalID: 21300150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_4
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 935
+        width: 42
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de027a08742c2604c9ecd17632b533c0
+      internalID: 21300152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_5
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 935
+        width: 42
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83f2a5c821597bd40ab458b6b93232e4
+      internalID: 21300154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_6
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 856
+        width: 54
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16ba35052503a1c4aab81049c3dd5482
+      internalID: 21300156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 856
+        width: 54
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbfe5a0235b64654d83d021694dc916d
+      internalID: 21300158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_8
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 856
+        width: 54
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db8d32b271c38e841beefc7754efa682
+      internalID: 21300160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_9
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 856
+        width: 54
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bf6e830e55fe984cb5a6e30a571e0d6
+      internalID: 21300162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_10
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 856
+        width: 54
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01e4d59478b969b4ab42f583e2355a76
+      internalID: 21300164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_11
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 856
+        width: 54
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2aa25b2609967dc41af7eaaaf7626f5d
+      internalID: 21300166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_12
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 792
+        width: 38
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5752be00d108c824eb5cb0bf0bc8dec4
+      internalID: 21300168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_13
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 792
+        width: 37
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34246e46f3771b240902d4afd546b97a
+      internalID: 21300170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_14
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 792
+        width: 37
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58acb3b97669ec84e85bed03cada03aa
+      internalID: 21300172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_15
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 792
+        width: 37
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 335d9fdd12f350b459bc47bbef70eba5
+      internalID: 21300174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_16
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 792
+        width: 37
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff0f29acdca4ef644b9ba4ec77688082
+      internalID: 21300176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_17
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 792
+        width: 37
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deb7915cefa80fe4b87f4cfcd84a47dc
+      internalID: 21300178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_18
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 712
+        width: 65
+        height: 58
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f71af78207bc5fd48be7adb56eda05a4
+      internalID: 21300180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_19
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 712
+        width: 65
+        height: 58
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae77a167182dcf54d9ee1c3b3001bea1
+      internalID: 21300182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_20
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 712
+        width: 65
+        height: 58
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56e351b87427f1f4aa5e44549a13cae5
+      internalID: 21300184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_21
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 712
+        width: 65
+        height: 58
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f8d5cd595ee1264aa73757a4266bbec
+      internalID: 21300186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_22
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 712
+        width: 65
+        height: 58
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6846730dfbdc224ebeb2d6ec9fde926
+      internalID: 21300188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_23
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 712
+        width: 65
+        height: 58
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32c7a5979cd81584bb460606b5d9586b
+      internalID: 21300190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_24
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 632
+        width: 55
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4924c71723c5ec48b7119779c39fdde
+      internalID: 21300192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_25
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 632
+        width: 55
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0471722186fbcc45add1a1b92b978f5
+      internalID: 21300194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_26
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 632
+        width: 55
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dabe3fddc13042742bb404cfca5decad
+      internalID: 21300196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_27
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 632
+        width: 55
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0e0b9040eef8674c95d01471a1fc410
+      internalID: 21300198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_28
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 632
+        width: 55
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cdd915e07c49cb4d8771c4dfc91eaf6
+      internalID: 21300200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_29
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 632
+        width: 55
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42b7a50ebaa7c3c499ed0be1e4308e2e
+      internalID: 21300202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_30
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 568
+        width: 33
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f21a464a1337ae41a40fee92138ea76
+      internalID: 21300204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_31
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 568
+        width: 33
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 044f1eeff34648443b25741895427ada
+      internalID: 21300206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_32
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 568
+        width: 33
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c494279a653d9d419b5b9843ae0d5b6
+      internalID: 21300208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_33
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 568
+        width: 33
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c88c52474996e31439b8218d7a9f1ae4
+      internalID: 21300210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_34
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 568
+        width: 33
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88345dade0b039c4cb32881d71180453
+      internalID: 21300212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Village_Doors_pixel_art_animation01_35
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 568
+        width: 33
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9df231699cc4bd4394c90650916d979
+      internalID: 21300214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 9fbd2b8dd1e7fd24397c3e2b17b7f61f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Village_Doors_pixel_art_animation01_9: 21300162
+      Village_Doors_pixel_art_animation01_19: 21300182
+      Village_Doors_pixel_art_animation01_23: 21300190
+      Village_Doors_pixel_art_animation01_3: 21300150
+      Village_Doors_pixel_art_animation01_17: 21300178
+      Village_Doors_pixel_art_animation01_30: 21300204
+      Village_Doors_pixel_art_animation01_35: 21300214
+      Village_Doors_pixel_art_animation01_32: 21300208
+      Village_Doors_pixel_art_animation01_10: 21300164
+      Village_Doors_pixel_art_animation01_2: 21300148
+      Village_Doors_pixel_art_animation01_20: 21300184
+      Village_Doors_pixel_art_animation01_8: 21300160
+      Village_Doors_pixel_art_animation01_16: 21300176
+      Village_Doors_pixel_art_animation01_27: 21300198
+      Village_Doors_pixel_art_animation01_15: 21300174
+      Village_Doors_pixel_art_animation01_31: 21300206
+      Village_Doors_pixel_art_animation01_14: 21300172
+      Village_Doors_pixel_art_animation01_24: 21300192
+      Village_Doors_pixel_art_animation01_4: 21300152
+      Village_Doors_pixel_art_animation01_34: 21300212
+      Village_Doors_pixel_art_animation01_18: 21300180
+      Village_Doors_pixel_art_animation01_22: 21300188
+      Village_Doors_pixel_art_animation01_26: 21300196
+      Village_Doors_pixel_art_animation01_7: 21300158
+      Village_Doors_pixel_art_animation01_11: 21300166
+      Village_Doors_pixel_art_animation01_29: 21300202
+      Village_Doors_pixel_art_animation01_28: 21300200
+      Village_Doors_pixel_art_animation01_0: 21300144
+      Village_Doors_pixel_art_animation01_6: 21300156
+      Village_Doors_pixel_art_animation01_1: 21300146
+      Village_Doors_pixel_art_animation01_21: 21300186
+      Village_Doors_pixel_art_animation01_25: 21300194
+      Village_Doors_pixel_art_animation01_33: 21300210
+      Village_Doors_pixel_art_animation01_13: 21300170
+      Village_Doors_pixel_art_animation01_5: 21300154
+      Village_Doors_pixel_art_animation01_12: 21300168
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

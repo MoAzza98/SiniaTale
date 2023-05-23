@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec354493c6672cd41bf48d14fdf02d8d, type: 3}
+  m_Name: Yura
+  m_EditorClassIdentifier: 
+  gravityStrength: -64
+  gravityScale: 3.2
+  fallGravityMult: 4
+  maxFallSpeed: 25
+  fastFallGravityMult: 10
+  maxFastFallSpeed: 50
+  runMaxSpeed: 25
+  runAcceleration: 2
+  runAccelAmount: 4
+  runDecceleration: 2
+  runDeccelAmount: 4
+  accelInAir: 1
+  deccelInAir: 1
+  doConserveMomentum: 0
+  jumpHeight: 8
+  jumpTimeToApex: 0.5
+  jumpForce: 32
+  bonusJumps: 3
+  jumpCutGravityMult: 3.5
+  jumpHangGravityMult: 1
+  jumpHangTimeThreshold: 0
+  jumpHangAccelerationMult: 1
+  jumpHangMaxSpeedMult: 1
+  wallJumpForce: {x: 15, y: 25}
+  wallJumpRunLerp: 0.075
+  wallJumpTime: 0.3
+  doTurnOnWallJump: 0
+  slideSpeed: -12
+  slideAccel: 12
+  coyoteTime: 0.2
+  jumpInputBufferTime: 0.2

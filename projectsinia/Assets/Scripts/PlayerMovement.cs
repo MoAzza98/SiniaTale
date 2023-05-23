@@ -152,7 +152,6 @@ public class PlayerMovement : MonoBehaviour
 			_isJumpCut = false;
 			_isJumpFalling = false;
 			Jump();
-			snsAnim.SquashStretchEffect(snsAnim.jumpStretch);
 		}
 		//WALL JUMP
 		else if (CanWallJump() && LastPressedJumpTime > 0)
@@ -165,7 +164,6 @@ public class PlayerMovement : MonoBehaviour
 			_lastWallJumpDir = (LastOnWallRightTime > 0) ? -1 : 1;
 
 			WallJump(_lastWallJumpDir);
-			snsAnim.SquashStretchEffect(snsAnim.jumpStretch);
 		}
 		//DOUBLE JUMP
 		else if(bonusJumpsLeft > 0 && LastPressedJumpTime > 0)
@@ -178,7 +176,6 @@ public class PlayerMovement : MonoBehaviour
 			bonusJumpsLeft--;
 			
 			Jump();
-			snsAnim.SquashStretchEffect(snsAnim.jumpStretch);
 		}
 		#endregion
 

@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
 	//Next, drag it into the slot in playerMovement on your player
 
 	public MovementInfoScriptableObject Data;
+	public PlayerAnimator animController;
 
 	#region Variables
 	//Components
@@ -66,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
 		IsFacingRight = true;
 		bonusJumpsLeft = Data.bonusJumps;
 		snsAnim = GetComponentInChildren<SquashStretch>();
+		animController = GetComponent<PlayerAnimator>();
 	}
 
 	private void Update()
@@ -105,6 +107,10 @@ public class PlayerMovement : MonoBehaviour
 			//Ground Check
 			if (Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, _groundLayer) && !IsJumping) //checks if set box overlaps with ground
 			{
+				if(LastOnGroundTime < -0.1f)
+                {
+					animController.justLanded = true;
+                }
 				LastOnGroundTime = Data.coyoteTime; //if so sets the lastGrounded to coyoteTime
 			}
 
@@ -151,6 +157,8 @@ public class PlayerMovement : MonoBehaviour
 			IsWallJumping = false;
 			_isJumpCut = false;
 			_isJumpFalling = false;
+			animController.justJumped = true;
+
 			Jump();
 		}
 		//WALL JUMP
@@ -162,6 +170,7 @@ public class PlayerMovement : MonoBehaviour
 			_isJumpFalling = false;
 			_wallJumpStartTime = Time.time;
 			_lastWallJumpDir = (LastOnWallRightTime > 0) ? -1 : 1;
+			animController.justJumped = true;
 
 			WallJump(_lastWallJumpDir);
 		}
@@ -172,6 +181,7 @@ public class PlayerMovement : MonoBehaviour
 			IsWallJumping = false;
 			_isJumpCut = false;
 			_isJumpFalling = false;
+			animController.justJumped = true;
 
 			bonusJumpsLeft--;
 			
@@ -341,6 +351,7 @@ public class PlayerMovement : MonoBehaviour
 			force -= RB.velocity.y;
 
 		RB.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+		animController.isMidair = true;
 		snsAnim.targetLerp = snsAnim.targetLerp == 0 ? 1 : 0;
 		#endregion
 	}

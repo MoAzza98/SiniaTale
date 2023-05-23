@@ -21,6 +21,7 @@ public class CharacterSwap : MonoBehaviour
         }
     }
 
+    //Sets the players movement data to a new scriptable object in the resources folder (must be in /resources)
     void CharacterSwapper()
     {
         newchar = Resources.Load<MovementInfoScriptableObject>("Characters/Yura");

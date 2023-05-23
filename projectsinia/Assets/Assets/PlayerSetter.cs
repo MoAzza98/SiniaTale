@@ -9,6 +9,7 @@ public class PlayerSetter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Get the virtual cam
         vcam = GetComponent<CinemachineVirtualCamera>();
         SetPlayerCam();
     }
@@ -19,6 +20,7 @@ public class PlayerSetter : MonoBehaviour
         
     }
 
+    //Set the virtual cams Follow and LookAt targets to the correct targets in scene by using Find()
     public void SetPlayerCam()
     {
         vcam.Follow = GameObject.Find("Player").transform;

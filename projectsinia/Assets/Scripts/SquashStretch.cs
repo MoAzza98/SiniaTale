@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class SquashStretch : MonoBehaviour
 {
@@ -26,7 +27,9 @@ public class SquashStretch : MonoBehaviour
     public void SquashStretchEffect(Vector2 target)
     {
         currentLerp = Mathf.MoveTowards(currentLerp, targetLerp, speed * Time.deltaTime);
+        //currentLerp = Mathf.Round(currentLerp * 10.0f) * 0.1f;
         transform.localScale = Vector2.Lerp(Vector2.one, target, curve.Evaluate(Mathf.PingPong(currentLerp, 0.5f)));
+
     }
 
     public void SetTargetLerp(float a)

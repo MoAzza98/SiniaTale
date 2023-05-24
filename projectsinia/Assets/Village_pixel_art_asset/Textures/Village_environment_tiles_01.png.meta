@@ -830,7 +830,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 48
+  spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -859,7 +859,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -871,7 +871,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Server
     maxTextureSize: 2048
@@ -883,7 +883,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
@@ -895,7 +895,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -6417,12 +6417,12 @@ TextureImporter:
       Village_241: 21300482
       Village_127: 21300254
       Village_243: 21300486
+      Village_230: 21300460
       Village_11: 21300022
       Village_115: 21300230
       Village_136: 21300272
       Village_226: 21300452
       Village_125: 21300250
-      Village_230: 21300460
       Village_108: 21300216
       Village_153: 21300306
       Village_119: 21300238
@@ -6509,19 +6509,19 @@ TextureImporter:
       Village_238: 21300476
       Village_120: 21300240
       Village_220: 21300440
-      Village_166: 21300332
-      Village_63: 21300126
-      Village_23: 21300046
-      Village_82: 21300164
-      Village_110: 21300220
-      Village_47: 21300094
-      Village_98: 21300196
       Village_181: 21300362
+      Village_166: 21300332
+      Village_23: 21300046
+      Village_63: 21300126
+      Village_82: 21300164
+      Village_47: 21300094
+      Village_110: 21300220
+      Village_98: 21300196
       Village_234: 21300468
       Village_109: 21300218
       Village_36: 21300072
-      Village_6: 21300012
       Village_213: 21300426
+      Village_6: 21300012
       Village_260: 21300520
       Village_86: 21300172
       Village_91: 21300182

@@ -32,5 +32,7 @@ The team at AuraLabs is currently open to support from chains who:
 
 Please feel free to contact us for more information regarding PROJECT: S. Please note that this current build of the project is an extremely early pre-alpha build, designed to be a proof of concept and MVP for relevant parties. This build is not to be shared, redistrubuted or promoted publicly.
 
+Contact: ssbsdmg@gmail.com
+
  # Social media
  Our relevant social media channels and links will be going live shortly.

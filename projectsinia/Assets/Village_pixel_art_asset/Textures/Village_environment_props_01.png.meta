@@ -3902,7 +3902,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 48
+  spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -3931,7 +3931,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 8192
@@ -3943,7 +3943,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Server
     maxTextureSize: 8192
@@ -3955,7 +3955,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 8192
@@ -3967,7 +3967,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -17803,11 +17803,12 @@ TextureImporter:
       Village_environment_props_01_639: 21302552
       Village_environment_props_01_54: 21301390
       Village_environment_props_01_135: 21301544
+      Village_environment_props_01_520: 21302314
       Village_environment_props_01_69: 21301420
-      Village_environment_props_01_132: 21302566
       Village_environment_props_01_165: 21301604
-      Village_environment_props_01_429: 21302132
+      Village_environment_props_01_132: 21302566
       Village_environment_props_01_510: 21302294
+      Village_environment_props_01_429: 21302132
       Village_environment_props_01_435: 21302144
       Village_environment_props_01_618: 21302510
       Village_environment_props_01_431: 21302136
@@ -17842,10 +17843,9 @@ TextureImporter:
       Village_environment_props_01_614: 21302502
       Village_environment_props_01_193: 21301660
       Village_environment_props_01_437: 21302148
-      Village_environment_props_01_520: 21302314
       Village_environment_props_01_60: 21301402
-      Village_environment_props_01_82: 21301446
       Village_environment_props_01_217: 21301708
+      Village_environment_props_01_82: 21301446
       Village_environment_props_01_40: 21301362
       Village_environment_props_01_157: 21301588
       Village_environment_props_01_201: 21301676

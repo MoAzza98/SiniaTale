@@ -28,6 +28,7 @@ The team at AuraLabs is currently open to support from chains who:
 * Are currently onboarding GameFi projects
 * Offering grants and support to developers
 * Have the necessary technical features to support our implementation
+* Have a strong community and are currently growing
 
 Please feel free to contact us for more information regarding PROJECT: S. Please note that this current build of the project is an extremely early pre-alpha build, designed to be a proof of concept and MVP for relevant parties. This build is not to be shared, redistrubuted or promoted publicly.
 

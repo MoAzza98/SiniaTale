@@ -23,7 +23,7 @@ Customise, create and play as your very own custom hero, embarking through the w
 
 # Development
 
-The team at AuraLabs is currently open to grants from chains who: 
+The team at AuraLabs is currently open to support from chains who: 
 * Match our development philosophy
 * Are currently onboarding GameFi projects
 * Offering grants and support to developers

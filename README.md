@@ -1,4 +1,4 @@
-# PROJECT: S (NAME TBD)
+# Abyss Seekers
 
 A dynamic, exciting and expansive multiplayer RPG hosted on the blockchain, brought to you by AuraLabs. Summon mythical heroes, legendary weapons and embark on epic quests to conquer, overcome and and rise above challenging raids, dungeons and bosses.
 

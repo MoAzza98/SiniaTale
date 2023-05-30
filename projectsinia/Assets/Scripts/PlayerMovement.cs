@@ -209,6 +209,7 @@ public class PlayerMovement : MonoBehaviour
 		#region DASH CHECKS
 		if (CanDash() && LastPressedDashTime > 0)
 		{
+			CinemachineShake.Instance.ShakeCamera(5f, 0.5f);
 			//Freeze game for split second. Adds juiciness and a bit of forgiveness over directional input
 			Sleep(Data.dashSleepTime);
 
@@ -461,6 +462,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		//Overall this method of dashing aims to mimic Celeste, if you're looking for
 		// a more physics-based approach try a method similar to that used in the jump
+
 
 		LastOnGroundTime = 0;
 		LastPressedDashTime = 0;

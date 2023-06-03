@@ -7,6 +7,7 @@ public class Ghost : MonoBehaviour
     private float lifespan;
     private float spawnTime;
     private SpriteRenderer spriteRenderer;
+    private Color[] rainbowColors = new Color[7] { Color.red, Color.yellow, Color.green, Color.cyan, Color.blue, Color.magenta, Color.red }; // A list of colors to create a rainbow spectrum
 
     private void Start()
     {
@@ -34,23 +35,16 @@ public class Ghost : MonoBehaviour
         spriteRenderer.sprite = sprite;
     }
 
+    public void SetColor(Color color)
+    {
+        spriteRenderer.color = color;
+    }
+
     void Update()
     {
         if (Time.time - spawnTime > lifespan)
         {
             Destroy(gameObject);
-        }
-        else
-        {
-            // calculate the color of the ghost based on a time-based function
-            float t = (Time.time - spawnTime) / lifespan;
-            Color color = Color.HSVToRGB(Mathf.Sin(t * Mathf.PI * 8) * 0.5f + 0.5f, 1.0f, 1.0f);
-
-            // set the color of the sprite renderer
-            if (spriteRenderer != null)
-            {
-                spriteRenderer.color = color;
-            }
         }
     }
 }

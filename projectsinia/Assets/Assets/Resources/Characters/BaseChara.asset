@@ -50,5 +50,5 @@ MonoBehaviour:
   dashEndTime: 0.15
   dashEndSpeed: {x: 15, y: 15}
   dashEndRunLerp: 0.5
-  dashRefillTime: 0.1
+  dashRefillTime: 5
   dashInputBufferTime: 0.1

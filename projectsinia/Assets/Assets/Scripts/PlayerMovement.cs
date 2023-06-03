@@ -248,7 +248,6 @@ public class PlayerMovement : MonoBehaviour
 			}
 			else if (RB.velocity.y < 0 && _moveInput.y < 0)
 			{
-				Debug.Log("Fastfalling");
 				//Much higher gravity if holding down
 				SetGravityScale(Data.gravityScale * Data.fastFallGravityMult);
 				//Caps maximum fall speed, so when falling over large distances we don't accelerate to insanely high speeds

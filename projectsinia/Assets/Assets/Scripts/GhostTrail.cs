@@ -5,41 +5,61 @@ using UnityEngine;
 public class GhostTrail : MonoBehaviour
 {
     public GameObject ghostPrefab; // the ghost prefab to use for the trail
-    public float spawnInterval = 0.1f; // how often to spawn a new ghost
-    public float lifespan = 1.0f; // how long each ghost should last
-    public int maxGhosts = 10; // how many ghosts to show at once
-    public float distanceThreshold = 0.1f; // minimum distance the sprite must move before spawning additional ghosts
+    public float spawnInterval; // how often to spawn a new ghost
+    public float lifespan; // how long each ghost should last
+    public int maxGhosts; // how many ghosts to show at once
+    public float distanceThreshold; // minimum distance the sprite must move before spawning additional ghosts
+    public float trailDuration; // how long the ghost trail should last
+    private float trailTimer; // timer for the ghost trail
+    public bool ghostTrailOn;
 
+    private SpriteRenderer sr;
     private float timeSinceLastSpawn = 0.0f;
-    private LinkedList<GameObject> ghosts = new LinkedList<GameObject>();
+    private List<GameObject> ghosts = new List<GameObject>();
     private Vector3 lastGhostPosition;
     private Queue<GameObject> ghostPool = new Queue<GameObject>();
 
     void Start()
     {
+        sr = GetComponent<SpriteRenderer>();
         lastGhostPosition = transform.position;
     }
 
     void Update()
     {
-        // calculate the distance the sprite has moved since the last ghost spawn
-        float distanceMoved = Vector3.Distance(transform.position, lastGhostPosition);
-
-        // spawn a new ghost if enough time has elapsed or the sprite has moved far enough
-        timeSinceLastSpawn += Time.deltaTime;
-        if (timeSinceLastSpawn >= spawnInterval || distanceMoved >= distanceThreshold)
+        if (trailTimer > 0.0f)
         {
-            timeSinceLastSpawn -= spawnInterval;
-            SpawnGhost();
-            lastGhostPosition = transform.position;
+            trailTimer -= Time.deltaTime;
+
+            // calculate the distance the sprite has moved since the last ghost spawn
+            float distanceMoved = Vector3.Distance(transform.position, lastGhostPosition);
+
+            // spawn a new ghost if enough time has elapsed or the sprite has moved far enough
+            timeSinceLastSpawn += Time.deltaTime;
+            if (timeSinceLastSpawn >= spawnInterval || distanceMoved >= distanceThreshold)
+            {
+                timeSinceLastSpawn -= spawnInterval;
+                SpawnGhost();
+                lastGhostPosition = transform.position;
+            }
+
+            // remove old ghosts that have exceeded their lifespan
+            while (ghosts.Count > 0 && Time.time - ghosts[0].GetComponent<Ghost>().SpawnTime > lifespan)
+            {
+                GameObject oldGhost = ghosts[0];
+                ghosts.RemoveAt(0);
+                ReturnToPool(oldGhost);
+            }
         }
-
-        // remove old ghosts that have exceeded their lifespan
-        while (ghosts.Count > 0 && Time.time - ghosts.First.Value.GetComponent<Ghost>().SpawnTime > lifespan)
+        else
         {
-            GameObject oldGhost = ghosts.First.Value;
-            ghosts.RemoveFirst();
-            ReturnToPool(oldGhost);
+            // if the trail timer has expired, destroy all ghosts and reset the timer
+            foreach (GameObject ghost in ghosts)
+            {
+                ReturnToPool(ghost);
+            }
+            ghosts.Clear();
+            trailTimer = 0.0f;
         }
     }
 
@@ -57,8 +77,8 @@ public class GhostTrail : MonoBehaviour
             newGhost = Instantiate(ghostPrefab, transform.position, transform.rotation);
         }
 
-        // add the ghost to the linked list and set its position and rotation
-        ghosts.AddLast(newGhost);
+        // add the ghost to the list and set its position and rotation
+        ghosts.Add(newGhost);
         newGhost.transform.position = transform.position;
         newGhost.transform.rotation = transform.rotation;
 
@@ -70,22 +90,15 @@ public class GhostTrail : MonoBehaviour
             ghost.SpawnTime = Time.time;
         }
 
-        // fill in any gaps in the ghost trail by reactivating inactive ghosts within the lifespan of the trail
-        foreach (GameObject ghostObj in ghosts)
-        {
-            if (!ghostObj.activeSelf && Time.time - ghostObj.GetComponent<Ghost>().SpawnTime <= lifespan)
-            {
-                ghostObj.SetActive(true);
-            }
-        }
-
         // deactivate any excess ghosts beyond the maximum allowed
         while (ghosts.Count > maxGhosts)
         {
-            GameObject oldGhost = ghosts.First.Value;
-            ghosts.RemoveFirst();
+            GameObject oldGhost = ghosts[0];
+            ghosts.RemoveAt(0);
             ReturnToPool(oldGhost);
         }
+
+        ghost.SetSprite(sr.sprite);
     }
 
     void ReturnToPool(GameObject ghost)
@@ -96,5 +109,10 @@ public class GhostTrail : MonoBehaviour
             ghost.SetActive(false);
             ghostPool.Enqueue(ghost);
         }
+    }
+
+    public void StartTrail(float time)
+    {
+        trailTimer = time;
     }
 }

@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour
 {
-    public PlayerMovement mov;
+    [HideInInspector] public PlayerMovement mov;
     private SpriteRenderer sr;
-    public Animator anim;
+    [HideInInspector] public Animator anim;
+
+    [Header("Particle FX")]
+    [SerializeField] private GameObject jumpFX;
+    [SerializeField] private GameObject landFX;
+    private ParticleSystem _jumpParticle;
+    private ParticleSystem _landParticle;
 
     public bool justLanded { private get; set; }
     public bool justJumped { private get; set; }
@@ -19,13 +25,20 @@ public class PlayerAnimator : MonoBehaviour
         mov = GetComponent<PlayerMovement>();
         sr = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
+
+        _jumpParticle = jumpFX.GetComponent<ParticleSystem>();
+        _landParticle = landFX.GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
         UpdateAnimationState();
-        //Debug.Log(mov.LastOnGroundTime);
+
+        ParticleSystem.MainModule jumpPSettings = _jumpParticle.main;
+        jumpPSettings.startColor = new ParticleSystem.MinMaxGradient(Color.white);
+        ParticleSystem.MainModule landPSettings = _landParticle.main;
+        landPSettings.startColor = new ParticleSystem.MinMaxGradient(Color.white);
     }
 
     void UpdateAnimationState()
@@ -37,12 +50,16 @@ public class PlayerAnimator : MonoBehaviour
         if (justLanded)
         {
             anim.SetTrigger("JustLanded");
+            GameObject obj = Instantiate(landFX, transform.position - (Vector3.up * transform.localScale.y / 1.5f), Quaternion.Euler(-90, 0, 0));
+            Destroy(obj, 1);
             justLanded = false;
         }
         
         if (justJumped)
         {
             anim.SetTrigger("JustJumped");
+            GameObject obj = Instantiate(jumpFX, transform.position - (Vector3.up * transform.localScale.y / 2), Quaternion.Euler(-90, 0, 0));
+            Destroy(obj, 1);
             justJumped = false;
         }
         if (mov.RB.velocity.y < -0.1f)

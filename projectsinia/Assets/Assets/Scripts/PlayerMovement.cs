@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
 	public MovementInfoScriptableObject Data;
 	public PlayerAnimator animController;
-	public DashTrail dt;
+	public GhostTrail gt;
 
 	#region Variables
 	//Components
@@ -76,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
 		IsFacingRight = true;
 		bonusJumpsLeft = Data.bonusJumps;
 		snsAnim = GetComponentInChildren<SquashStretch>();
+		gt = GetComponentInChildren<GhostTrail>();
 		animController = GetComponent<PlayerAnimator>();
 	}
 
@@ -462,7 +463,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		//Overall this method of dashing aims to mimic Celeste, if you're looking for
 		// a more physics-based approach try a method similar to that used in the jump
-
+		gt.StartTrail(Data.dashAttackTime + Data.dashEndTime);
 		LastOnGroundTime = 0;
 		LastPressedDashTime = 0;
 

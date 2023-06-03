@@ -4,43 +4,115 @@ using UnityEngine;
 
 public class GhostTrail : MonoBehaviour
 {
-    public GameObject ghostPrefab; // The prefab to use for the ghost trail
-    public int numberOfGhosts = 5; // The number of ghosts to generate
-    public float ghostSpawnDelay = 0.1f; // The delay between spawning each ghost
-    public float ghostLifeTime = 1f; // The lifetime of each ghost
+    public GameObject ghostPrefab; // the ghost prefab to use for the trail
+    public float spawnInterval; // how often to spawn a new ghost
+    public float lifespan; // how long each ghost should last
+    public int maxGhosts; // how many ghosts to show at once
+    public float distanceThreshold; // minimum distance the sprite must move before spawning additional ghosts
+    public float trailDuration; // how long the ghost trail should last
+    private float trailTimer; // timer for the ghost trail
+    public bool ghostTrailOn;
 
-    private List<GameObject> ghosts; // A list to store the generated ghosts
+    private SpriteRenderer sr;
+    private float timeSinceLastSpawn = 0.0f;
+    private List<GameObject> ghosts = new List<GameObject>();
+    private Vector3 lastGhostPosition;
+    private Queue<GameObject> ghostPool = new Queue<GameObject>();
 
-    private void Start()
+    void Start()
     {
-        ghosts = new List<GameObject>();
+        sr = GetComponent<SpriteRenderer>();
+        lastGhostPosition = transform.position;
     }
 
-    private void FixedUpdate()
+    void Update()
     {
-        // Spawn a new ghost at the current position of the sprite
-        GameObject newGhost = Instantiate(ghostPrefab, transform.position, transform.rotation);
+        if (trailTimer > 0.0f)
+        {
+            trailTimer -= Time.deltaTime;
+
+            // calculate the distance the sprite has moved since the last ghost spawn
+            float distanceMoved = Vector3.Distance(transform.position, lastGhostPosition);
+
+            // spawn a new ghost if enough time has elapsed or the sprite has moved far enough
+            timeSinceLastSpawn += Time.deltaTime;
+            if (timeSinceLastSpawn >= spawnInterval || distanceMoved >= distanceThreshold)
+            {
+                timeSinceLastSpawn -= spawnInterval;
+                SpawnGhost();
+                lastGhostPosition = transform.position;
+            }
+
+            // remove old ghosts that have exceeded their lifespan
+            while (ghosts.Count > 0 && Time.time - ghosts[0].GetComponent<Ghost>().SpawnTime > lifespan)
+            {
+                GameObject oldGhost = ghosts[0];
+                ghosts.RemoveAt(0);
+                ReturnToPool(oldGhost);
+            }
+        }
+        else
+        {
+            // if the trail timer has expired, destroy all ghosts and reset the timer
+            foreach (GameObject ghost in ghosts)
+            {
+                ReturnToPool(ghost);
+            }
+            ghosts.Clear();
+            trailTimer = 0.0f;
+        }
+    }
+
+    void SpawnGhost()
+    {
+        // get a ghost from the pool or create a new one if the pool is empty
+        GameObject newGhost;
+        if (ghostPool.Count > 0)
+        {
+            newGhost = ghostPool.Dequeue();
+            newGhost.SetActive(true);
+        }
+        else
+        {
+            newGhost = Instantiate(ghostPrefab, transform.position, transform.rotation);
+        }
+
+        // add the ghost to the list and set its position and rotation
         ghosts.Add(newGhost);
+        newGhost.transform.position = transform.position;
+        newGhost.transform.rotation = transform.rotation;
 
-        // Remove the oldest ghost if the list exceeds the maximum number of ghosts
-        if (ghosts.Count > numberOfGhosts)
+        // set the ghost's lifespan and spawn time
+        Ghost ghost = newGhost.GetComponent<Ghost>();
+        if (ghost != null)
         {
-            GameObject oldestGhost = ghosts[0];
-            ghosts.RemoveAt(0);
-            Destroy(oldestGhost);
+            ghost.SetLifespan(lifespan);
+            ghost.SpawnTime = Time.time;
         }
 
-        // Set the lifetime of each ghost
-        foreach (GameObject ghost in ghosts)
+        // deactivate any excess ghosts beyond the maximum allowed
+        while (ghosts.Count > maxGhosts)
         {
-            StartCoroutine(DestroyGhost(ghost, ghostLifeTime));
+            GameObject oldGhost = ghosts[0];
+            ghosts.RemoveAt(0);
+            ReturnToPool(oldGhost);
+        }
+
+        ghost.SetSprite(sr.sprite);
+    }
+
+    void ReturnToPool(GameObject ghost)
+    {
+        // check if the ghost is still active before returning it to the pool
+        if (ghost.activeSelf)
+        {
+            ghost.SetActive(false);
+            ghostPool.Enqueue(ghost);
         }
     }
 
-    IEnumerator DestroyGhost(GameObject ghost, float delay)
+    public void StartTrail(float time)
     {
-        yield return new WaitForSeconds(delay);
-        ghosts.Remove(ghost);
-        Destroy(ghost);
+        trailTimer = time;
     }
 }

@@ -225,10 +225,8 @@ public class PlayerMovement : MonoBehaviour
 			IsJumping = false;
 			IsWallJumping = false;
 			_isJumpCut = false;
-			dt.SetEnabled(true);
 
 			StartCoroutine(nameof(StartDash), _lastDashDir);
-			dt.SetEnabled(false);
 		}
 		#endregion
 

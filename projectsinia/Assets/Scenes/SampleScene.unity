@@ -5618,6 +5618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: b6694ab16cb67634189db5a37f0c975e, type: 2}
   animController: {fileID: 0}
+  dt: {fileID: 0}
   _groundCheckPoint: {fileID: 1456710347}
   _groundCheckSize: {x: 0.8, y: 0.06}
   _frontWallCheckPoint: {fileID: 2116060266}
@@ -5694,6 +5695,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mov: {fileID: 0}
   anim: {fileID: 0}
+  jumpFX: {fileID: 3234584074981126610, guid: 4246e7bd1b4a16946af462fce8607683, type: 3}
+  landFX: {fileID: 3234584074981126610, guid: f5834c5a434eb97499bc8cbea7b01824, type: 3}
 --- !u!1 &1886619343
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,8 +8,10 @@ public class PlayerMovement : MonoBehaviour
 	//Next, drag it into the slot in playerMovement on your player
 
 	public MovementInfoScriptableObject Data;
-	public PlayerAnimator animController;
-	public GhostTrail gt;
+	private PlayerAnimator animController;
+	private GhostTrail gt;
+	[SerializeField] private GameObject runFX;
+	private ParticleSystem _runParticle;
 
 	#region Variables
 	//Components
@@ -78,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
 		snsAnim = GetComponentInChildren<SquashStretch>();
 		gt = GetComponentInChildren<GhostTrail>();
 		animController = GetComponent<PlayerAnimator>();
+		_runParticle = runFX.GetComponent<ParticleSystem>();
 	}
 
 	private void Update()
@@ -404,6 +407,12 @@ public class PlayerMovement : MonoBehaviour
 		Vector3 scale = transform.localScale;
 		scale.x *= -1;
 		transform.localScale = scale;
+
+		if(LastOnGroundTime > 0)
+        {
+			GameObject runEffect = Instantiate(runFX, transform.position - (Vector3.up * transform.localScale.y / 1.5f), Quaternion.Euler(0, 0, 0));
+			Destroy(runEffect, 0.3f);
+        }
 
 		IsFacingRight = !IsFacingRight;
 	}

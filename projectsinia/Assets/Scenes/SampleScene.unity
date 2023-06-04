@@ -3842,7 +3842,7 @@ MonoBehaviour:
   ghostPrefab: {fileID: 7100471418967961670, guid: 2e9cb396475bcdf428039d634d2bdd42, type: 3}
   spawnInterval: 1
   lifespan: 2
-  maxGhosts: 5
+  maxGhosts: 10
   distanceThreshold: 2.5
   trailDuration: 10
   ghostTrailOn: 1
@@ -4269,8 +4269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: b6694ab16cb67634189db5a37f0c975e, type: 2}
-  animController: {fileID: 0}
-  gt: {fileID: 0}
+  runFX: {fileID: 3234584074981126610, guid: 6a9cef37caff1654f94a8b551d917bc5, type: 3}
   _groundCheckPoint: {fileID: 1456710347}
   _groundCheckSize: {x: 0.8, y: 0.06}
   _frontWallCheckPoint: {fileID: 2116060266}

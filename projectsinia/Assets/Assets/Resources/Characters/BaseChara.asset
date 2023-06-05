@@ -12,33 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec354493c6672cd41bf48d14fdf02d8d, type: 3}
   m_Name: BaseChara
   m_EditorClassIdentifier: 
-  gravityStrength: -64
-  gravityScale: 3.2
-  fallGravityMult: 4
+  gravityStrength: -68.75
+  gravityScale: 3.4375
+  fallGravityMult: 5
   maxFallSpeed: 25
   fastFallGravityMult: 10
   maxFastFallSpeed: 50
   runMaxSpeed: 19.5
-  runAcceleration: 7
-  runAccelAmount: 17.948717
-  runDecceleration: 7
-  runDeccelAmount: 17.948717
+  runAcceleration: 9.5
+  runAccelAmount: 24.358974
+  runDecceleration: 9.5
+  runDeccelAmount: 24.358974
   accelInAir: 1
   deccelInAir: 1
   doConserveMomentum: 0
-  jumpHeight: 8
-  jumpTimeToApex: 0.5
-  jumpForce: 32
+  jumpHeight: 5.5
+  jumpTimeToApex: 0.4
+  jumpForce: 27.5
   bonusJumps: 1
   jumpCutGravityMult: 3.5
-  jumpHangGravityMult: 1
+  jumpHangGravityMult: 0.5
   jumpHangTimeThreshold: 0
   jumpHangAccelerationMult: 1
   jumpHangMaxSpeedMult: 1
-  wallJumpForce: {x: 15, y: 25}
+  wallJumpForce: {x: 20, y: 30}
   wallJumpRunLerp: 0.075
-  wallJumpTime: 0.3
-  doTurnOnWallJump: 0
+  wallJumpTime: 0.55
+  doTurnOnWallJump: 1
   slideSpeed: -12
   slideAccel: 12
   coyoteTime: 0.2

@@ -3926,7 +3926,7 @@ MonoBehaviour:
   ghostPrefab: {fileID: 7100471418967961670, guid: 2e9cb396475bcdf428039d634d2bdd42, type: 3}
   spawnInterval: 1
   lifespan: 2
-  maxGhosts: 10
+  maxGhosts: 15
   distanceThreshold: 2.5
   trailDuration: 10
   ghostTrailOn: 1
@@ -4510,6 +4510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   marker: {fileID: 7746222342805424838, guid: 068976f8e2cccad45ae53d1d4a9faa51, type: 3}
+  warpTimeThreshold: 3
 --- !u!1 &1886619343
 GameObject:
   m_ObjectHideFlags: 0

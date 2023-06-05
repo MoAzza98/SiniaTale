@@ -9,14 +9,27 @@ public class PlayerAbilityManager : MonoBehaviour
     private Vector3 playerCurrentPos;
     [SerializeField] private GameObject marker;
     private GameObject obj;
+    private float timer = 0f;
+    public float warpTimeThreshold;
+    private GhostTrail ghostTrail;
     // Start is called before the first frame update
     void Start()
     {
+        ghostTrail = GetComponentInChildren<GhostTrail>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (markSet)
+        {
+            timer += Time.deltaTime;
+            if(timer >= warpTimeThreshold)
+            {
+                ReturnToOrigin();
+                //Destroy(obj);
+            }
+        }
         playerCurrentPos = transform.position;
         HandleWarp();
     }
@@ -29,12 +42,14 @@ public class PlayerAbilityManager : MonoBehaviour
             {
                 MarkPosition();
                 marker.transform.position = transform.position;
-                obj = Instantiate(marker, new Vector3(transform.position.x, transform.position.y + 0.5f), transform.rotation);
+                //obj = Instantiate(marker, new Vector3(transform.position.x, transform.position.y + 0.5f), transform.rotation);
+                ghostTrail.StartTrail(warpTimeThreshold);
             }
             else if (markSet)
             {
+                ghostTrail.DestroyAllGhosts();
                 ReturnToOrigin();
-                Destroy(obj);
+                //Destroy(obj);
             }
         }
     }
@@ -49,5 +64,6 @@ public class PlayerAbilityManager : MonoBehaviour
     {
         transform.position = playerOrigin;
         markSet = false;
+        timer = 0f;
     }
 }

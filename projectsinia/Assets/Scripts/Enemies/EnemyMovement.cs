@@ -22,7 +22,7 @@ public class EnemyMovement : MonoBehaviour
     Animator enemyAnimator;
 
     //AI Chase
-    [SerializeField] Transform playerTransform;
+    Transform playerTransform;
     bool isChasing = false;
     [SerializeField] float chaseDistance = 3f;
     [SerializeField] float dropChaseMultiplier = 2f;
@@ -35,12 +35,17 @@ public class EnemyMovement : MonoBehaviour
     {
         enemyRigidBody = GetComponent<Rigidbody2D>();
         enemyAnimator = GetComponent<Animator>();
+        playerTransform = FindObjectOfType<PlayerAttack>().GetComponent<Transform>();
         moveSpeed2 = moveSpeed;
 
     }
 
     void Update()
     {
+        if(enemyRigidBody.velocity.x != 0){
+            transform.localScale = new Vector2((Mathf.Sign(enemyRigidBody.velocity.x)), 1f);
+        }
+        
         if (isChasing)
         {
             isPatrolling = false;
@@ -72,6 +77,7 @@ public class EnemyMovement : MonoBehaviour
                     Debug.Log("Stopped chasing, should call patrol once.");
                     if(!firstPatrolCall)
                     {
+                        Debug.Log("Should only show on 2nd or more calls. Anyway flipping broy");
                         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
                   
                     }
@@ -100,19 +106,6 @@ public class EnemyMovement : MonoBehaviour
         }
 
     }
-
-
-
-
-
-    //remember to set ispatrolling to false in chase.
-
-
-
-
-
-
-
 
 
 

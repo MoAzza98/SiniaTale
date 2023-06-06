@@ -3769,6 +3769,7 @@ GameObject:
   - component: {fileID: 712395090}
   - component: {fileID: 712395091}
   - component: {fileID: 712395092}
+  - component: {fileID: 712395093}
   m_Layer: 0
   m_Name: PlayerSprite
   m_TagString: Untagged
@@ -3947,6 +3948,32 @@ MonoBehaviour:
   specialAttackPivot: {fileID: 1216321820}
   attacking: 0
   specialAttacking: 0
+--- !u!61 &712395093
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712395086}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.062353015, y: 1.063345}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.3, y: 0}
+    oldSize: {x: 5, y: 4}
+    newSize: {x: 1, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.3907673, y: 2.14157}
+  m_EdgeRadius: 0
 --- !u!1 &1216321820
 GameObject:
   m_ObjectHideFlags: 0
@@ -4742,7 +4769,7 @@ MonoBehaviour:
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
   m_XDamping: 1
-  m_YDamping: 1
+  m_YDamping: 5
   m_ZDamping: 1
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5

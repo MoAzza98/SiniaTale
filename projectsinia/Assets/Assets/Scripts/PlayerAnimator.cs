@@ -7,6 +7,7 @@ public class PlayerAnimator : MonoBehaviour
     [HideInInspector] public PlayerMovement mov;
     private SpriteRenderer sr;
     [HideInInspector] public Animator anim;
+    public PlayerAttack pAttack;
 
     [Header("Particle FX")]
     [SerializeField] private GameObject jumpFX;
@@ -22,6 +23,7 @@ public class PlayerAnimator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        pAttack = GetComponentInChildren<PlayerAttack>();
         mov = GetComponent<PlayerMovement>();
         sr = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
@@ -46,7 +48,7 @@ public class PlayerAnimator : MonoBehaviour
         anim.SetFloat("Vel X", Mathf.Abs(mov.RB.velocity.x));
         currentY = mov.RB.velocity.y;
         anim.SetFloat("Vel Y", currentY);
-        
+
         if (justLanded)
         {
             anim.SetTrigger("JustLanded");
@@ -62,12 +64,21 @@ public class PlayerAnimator : MonoBehaviour
             Destroy(obj, 1);
             justJumped = false;
         }
-        if (mov.RB.velocity.y < -0.1f)
+        if (mov.RB.velocity.y < -0.01f && mov.LastOnGroundTime < 0.1f)
         {
             anim.SetBool("Falling", true);
         } else
         {
             anim.SetBool("Falling", false);
+        }
+
+        if (pAttack.attacking)
+        {
+            anim.SetBool("Attacking", true);
+        }
+        else if (!pAttack.attacking)
+        {
+            anim.SetBool("Attacking", false);
         }
     }
 }

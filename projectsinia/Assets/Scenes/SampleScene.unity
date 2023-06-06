@@ -4922,10 +4922,6 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6672373576919638732, guid: 596d360706f120642b8214cc025a4352, type: 3}
-      propertyPath: chaseDistance
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6672373576919638732, guid: 596d360706f120642b8214cc025a4352, type: 3}
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 712395088}

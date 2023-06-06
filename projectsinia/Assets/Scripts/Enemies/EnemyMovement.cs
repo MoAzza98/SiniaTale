@@ -27,6 +27,9 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] float chaseDistance = 3f;
     [SerializeField] float dropChaseMultiplier = 2f;
 
+    //Misc
+    bool firstPatrolCall = true;
+
 
     void Start()
     {
@@ -67,8 +70,12 @@ public class EnemyMovement : MonoBehaviour
                     shouldPatrol = true;
                     isPatrolling = true;
                     Debug.Log("Stopped chasing, should call patrol once.");
-                    // transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-
+                    if(!firstPatrolCall)
+                    {
+                        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                  
+                    }
+                    firstPatrolCall = false;
                     Patrol();
                 }
             }

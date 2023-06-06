@@ -118,6 +118,16 @@ public class GhostTrail : MonoBehaviour
         }
     }
 
+    public void DestroyAllGhosts()
+    {
+        foreach (GameObject ghost in ghosts)
+        {
+            ReturnToPool(ghost);
+        }
+        ghosts.Clear();
+        trailTimer = 0.0f;
+    }
+
     public void StartTrail(float time)
     {
         trailTimer = time;

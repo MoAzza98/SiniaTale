@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 3045042444708104861}
   - component: {fileID: 6672373576919638732}
   - component: {fileID: 7324939858783083070}
+  - component: {fileID: -8535965718658248983}
   m_Layer: 6
   m_Name: Slime_enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -163,7 +164,6 @@ MonoBehaviour:
   moveTimeVariance: 4
   idleTimeVariance: 2
   chanceToFlipDirection: 0.25
-  playerTransform: {fileID: 0}
   chaseDistance: 8
   dropChaseMultiplier: 2
 --- !u!61 &7324939858783083070
@@ -192,3 +192,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.18080044, y: 1.8495915}
   m_EdgeRadius: 0
+--- !u!114 &-8535965718658248983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790075684154116818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc0a8d10252ed5a43946b51829346b9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10

@@ -152,7 +152,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &381000978
 GameObject:
@@ -3956,7 +3956,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 240713774573960907, guid: 596d360706f120642b8214cc025a4352, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 240713774573960907, guid: 596d360706f120642b8214cc025a4352, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4013,7 +4013,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 240713774573960907, guid: ce653dbe6532af04286a12e77268c26f, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 240713774573960907, guid: ce653dbe6532af04286a12e77268c26f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4140,7 +4140,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1435313355
 PrefabInstance:
@@ -4275,7 +4275,7 @@ Transform:
   - {fileID: 381000979}
   - {fileID: 527947996}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1732732792
 GameObject:
@@ -4796,8 +4796,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.611624, y: 1.6724024, z: 1}
-  m_Center: {x: 0.305812, y: 0.0687685, z: 0}
+  m_Size: {x: 2.18, y: 1.6724024, z: 1}
+  m_Center: {x: 0.83, y: 0.0687685, z: 0}
 --- !u!1 &1886619343
 GameObject:
   m_ObjectHideFlags: 0
@@ -4946,7 +4946,7 @@ MonoBehaviour:
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
   m_XDamping: 1
-  m_YDamping: 1
+  m_YDamping: 4
   m_ZDamping: 1
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
@@ -5128,6 +5128,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3045042444708104861, guid: 596d360706f120642b8214cc025a4352, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 6d07e103e7e78a14f8a2bd0d727fa2b2, type: 2}
     - target: {fileID: 6672373576919638732, guid: 596d360706f120642b8214cc025a4352, type: 3}
       propertyPath: playerTransform
       value: 

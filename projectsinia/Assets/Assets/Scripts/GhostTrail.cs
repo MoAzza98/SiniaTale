@@ -101,10 +101,12 @@ public class GhostTrail : MonoBehaviour
         newGhost.transform.localScale = new Vector2(transform.parent.localScale.x, transform.parent.localScale.y);
 
         // set the color of the ghost based on the index of the ghost in the ghost trail
+        /*
         int ghostIndex = ghosts.Count - 1;
         int rainbowColorIndex = ghostIndex % 7;
         Color color = Color.HSVToRGB((float)rainbowColorIndex / 7f, 1f, 1f);
         ghost.SetColor(color);
+        */
         ghost.SetSprite(sr.sprite);
     }
 

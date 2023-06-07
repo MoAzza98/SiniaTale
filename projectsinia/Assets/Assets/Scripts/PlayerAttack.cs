@@ -26,6 +26,7 @@ public class PlayerAttack : MonoBehaviour
         attackArea = player.GetComponentInChildren<AttackArea>().gameObject;
         specialAttack = Instantiate(specialAttackArea, new Vector3(specialAttackPivot.transform.position.x + 4f, specialAttackPivot.transform.position.y), transform.rotation);
         specialAttack.transform.parent = specialAttackPivot.transform;
+        attackArea.SetActive(attacking);
     }
 
     // Update is called once per frame

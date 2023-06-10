@@ -26,6 +26,7 @@ public class EnemyMovement : MonoBehaviour
     bool isChasing = false;
     [SerializeField] float chaseDistance = 3f;
     [SerializeField] float dropChaseMultiplier = 2f;
+    [SerializeField] float chaseSpeed = 5f;
 
     //Misc
     bool firstPatrolCall = true;
@@ -42,17 +43,21 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        if(enemyRigidBody.velocity.x != 0){
+      
+        if (enemyRigidBody.velocity.x != 0)
+        {
             transform.localScale = new Vector2((Mathf.Sign(enemyRigidBody.velocity.x)), 1f);
         }
-        
+
         if (isChasing)
         {
             isPatrolling = false;
+            shouldPatrol = false;
             if (Vector2.Distance(transform.position, playerTransform.position) > chaseDistance * dropChaseMultiplier)
             {
-                // Debug.Log("Should stop chasing");
+                Debug.Log("Should stop chasing");
                 isChasing = false;
+                shouldPatrol = true;
             }
             else
             {
@@ -64,7 +69,7 @@ public class EnemyMovement : MonoBehaviour
         {
             if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance)
             {
-                // Debug.Log("Setting is chasing to be true");
+                Debug.Log("Setting is chasing to be true");
                 isChasing = true;
             }
             else
@@ -75,11 +80,11 @@ public class EnemyMovement : MonoBehaviour
                     shouldPatrol = true;
                     isPatrolling = true;
                     // Debug.Log("Stopped chasing, should call patrol once.");
-                    if(!firstPatrolCall)
+                    if (!firstPatrolCall)
                     {
                         // Debug.Log("Should only show on 2nd or more calls. Anyway flipping broy");
                         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-                  
+
                     }
                     firstPatrolCall = false;
                     Patrol();
@@ -92,17 +97,22 @@ public class EnemyMovement : MonoBehaviour
 
     void ChasePlayer()
     {
-        // Debug.Log("Should be chasing... movespeed is: " + moveSpeed);
+        Debug.Log("Should be chasing... movespeed is: " + chaseSpeed);
         enemyAnimator.SetBool("IsMoving", true);
         if (transform.position.x > playerTransform.position.x)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
-            transform.position += Vector3.left * moveSpeed2 * Time.deltaTime;
+            // transform.localScale = new Vector3(-1, 1, 1);
+            // transform.position += Vector3.left * moveSpeed2 * Time.deltaTime;
+            
+            //can try addforce impulse to make it faster.
+            enemyRigidBody.velocity = new Vector2(-Mathf.Abs(chaseSpeed), 0f);
         }
         if (transform.position.x < playerTransform.position.x)
         {
-            transform.localScale = new Vector3(1, 1, 1);
-            transform.position += Vector3.right * moveSpeed2 * Time.deltaTime;
+            // transform.localScale = new Vector3(1, 1, 1);
+            // transform.position += Vector3.right * moveSpeed2 * Time.deltaTime;
+            // moveSpeed = -moveSpeed;
+            enemyRigidBody.velocity = new Vector2(Mathf.Abs(chaseSpeed), 0f);
         }
 
     }

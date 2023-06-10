@@ -51,7 +51,7 @@ public class EnemyMovement : MonoBehaviour
             isPatrolling = false;
             if (Vector2.Distance(transform.position, playerTransform.position) > chaseDistance * dropChaseMultiplier)
             {
-                Debug.Log("Should stop chasing");
+                // Debug.Log("Should stop chasing");
                 isChasing = false;
             }
             else
@@ -64,7 +64,7 @@ public class EnemyMovement : MonoBehaviour
         {
             if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance)
             {
-                Debug.Log("Setting is chasing to be true");
+                // Debug.Log("Setting is chasing to be true");
                 isChasing = true;
             }
             else
@@ -74,10 +74,10 @@ public class EnemyMovement : MonoBehaviour
                 {
                     shouldPatrol = true;
                     isPatrolling = true;
-                    Debug.Log("Stopped chasing, should call patrol once.");
+                    // Debug.Log("Stopped chasing, should call patrol once.");
                     if(!firstPatrolCall)
                     {
-                        Debug.Log("Should only show on 2nd or more calls. Anyway flipping broy");
+                        // Debug.Log("Should only show on 2nd or more calls. Anyway flipping broy");
                         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
                   
                     }

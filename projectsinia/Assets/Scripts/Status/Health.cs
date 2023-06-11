@@ -53,34 +53,37 @@ public class Health : MonoBehaviour
     #region Taking damage & knockback
     void OnTriggerStay2D(Collider2D other)
     {
-        // if (isPlayer && other.tag == "Enemy" && !isInvincible)
-        // {
-        //     // TakeDamage(damageDealer.GetDamage());
+        if (isPlayer && other.tag == "Enemy" && !isInvincible)
+        {
+            knockback.PlayFeedback(other.gameObject);
+            isInvincible = true;
+            StartCoroutine(ResetInvincibility());
+            // TakeDamage(damageDealer.GetDamage());
 
-        //     knockback.PlayFeedback(other.gameObject);
-        //     // DamageDealer damageDealer = other.GetComponent<DamageDealer>();
-        //     // if (damageDealer)
-        //     // {
-        //     //     TakeDamage(damageDealer.GetDamage());
-        //     //     knockback.PlayFeedback(other.gameObject);
-
-        //     // }
-        //     isInvincible = true;
-
-        //     // Start a coroutine to reset the flag after a delay
-        //     StartCoroutine(ResetInvincibility());
-        // }
-        //else if (!isPlayer && other.tag == "Player" && myHealthBar)
-        //{
-            // Debug.Log("Yea hit registered.");
-            // knockback.PlayFeedback(other.gameObject);
+            
             // DamageDealer damageDealer = other.GetComponent<DamageDealer>();
             // if (damageDealer)
             // {
             //     TakeDamage(damageDealer.GetDamage());
-            //     // Debug.Log("Logging current health after taking damage: " + health);
-            //     myHealthBar.SetCurrentHealth(-((float)damageDealer.GetDamage()));
+            //     knockback.PlayFeedback(other.gameObject);
+
             // }
+            
+
+            // Start a coroutine to reset the flag after a delay
+            
+        }
+        //else if (!isPlayer && other.tag == "Player" && myHealthBar)
+        //{
+        // Debug.Log("Yea hit registered.");
+        // knockback.PlayFeedback(other.gameObject);
+        // DamageDealer damageDealer = other.GetComponent<DamageDealer>();
+        // if (damageDealer)
+        // {
+        //     TakeDamage(damageDealer.GetDamage());
+        //     // Debug.Log("Logging current health after taking damage: " + health);
+        //     myHealthBar.SetCurrentHealth(-((float)damageDealer.GetDamage()));
+        // }
         //}
         // else if(!isPlayer && other.tag == "Player"){ //&& other.gameObject.GetComponent<AttackArea>() && other.tag == "Player"){
         //     Debug.Log("about to knockback enemy");
@@ -98,7 +101,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        Debug.Log("Taking damage, value is : " + damage);
+        // Debug.Log("Taking damage, value is : " + damage);
         myHealthBar.SetCurrentHealth(-((float)damage));
         health -= damage;
         // Debug.Log("Took Damage, your new health is: " + health);

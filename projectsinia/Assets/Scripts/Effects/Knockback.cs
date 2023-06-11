@@ -7,9 +7,9 @@ public class Knockback : MonoBehaviour
 {
     [SerializeField] Rigidbody2D myRigidBody;
     [SerializeField] float knockbackStrength = 16f;
-    [SerializeField] float knockbackDuration = 0.15f;
-    [SerializeField] float knockbackDistanceX = 5f;
-    [SerializeField] float knockbackDistanceY = 5f;
+    [SerializeField] float knockbackDuration = 2f;
+    [SerializeField] float knockbackDistanceX = 200f;
+    [SerializeField] float knockbackDistanceY = 50f;
 
 
     public UnityEvent OnBegin, OnDone;
@@ -28,11 +28,11 @@ public class Knockback : MonoBehaviour
 
     public void PlayFeedback(GameObject applier)
     {
-        // Debug.Log("Yes we are playing knockback..." + applier);
-        StopAllCoroutines();
-        OnBegin?.Invoke();
-        // myRigidBody.velocity = Vector3.zero;
+        // StopAllCoroutines();
+        // OnBegin?.Invoke();
         Vector2 direction = (transform.position - applier.transform.position).normalized;
+        // direction += (myRigidBody.velocity).normalized;
+        // myRigidBody.AddForce(new Vector2(-(direction.x * knockbackDistanceX), 0f), ForceMode2D.Impulse);
         myRigidBody.AddForce(new Vector2(direction.x * knockbackDistanceX, direction.y * knockbackDistanceY), ForceMode2D.Impulse);
         // StartCoroutine(ResetKnockback());
     }

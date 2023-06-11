@@ -15,30 +15,49 @@ public class AttackArea : MonoBehaviour
 
     int counter = 0;
 
+    [SerializeField] float attackDuration = 0.01f;
+    bool isInvincible = false;
+    EnemyMovement otherMovement;
+    PlayerMovement playerMovement;
 
-    
+
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("How many times does this play per hit? : " + counter);
-        counter++;
-        
-        knockback = other.GetComponent<Knockback>();
-        // Debug.Log("Attack area ontrigger triggered." + other);
-        otherHealth = other.GetComponent<Health>();
-        Debug.Log("logging enemy otherhealth BEFORE" + otherHealth.GetCurrentHealth());
-        if (otherHealth.GetCurrentHealth() > 0)
+        // Debug.Log("Is this trigger even entering? : " + other);
+        // Debug.Log("Logging enemy and isinvincible: " + other.tag + isInvincible);
+        if (other.tag == "Enemy" && !isInvincible)
         {
-            otherHealth.TakeDamage(damage); 
-            // Debug.Log("about to knockback enemy");
+            knockback = other.GetComponent<Knockback>();
+            otherHealth = other.GetComponent<Health>();
+            otherMovement = other.GetComponent<EnemyMovement>();
+            otherMovement.PauseEnemyMovement();
+            // Debug.Log("logging enemy otherhealth BEFORE : " + otherHealth.GetCurrentHealth());
+            if (otherHealth.GetCurrentHealth() > 0)
+            {
+                otherHealth.TakeDamage(damage);
 
-            // myCopy = this.gameObject;
-            // Debug.Log("printing gameobjects transform: " + myCopy.transform);
-            // knockback.PlayFeedback(myCopy);
+                knockback.PlayFeedback(gameObject);
 
-            Debug.Log("logging enemy otherhealth AFTER : " + otherHealth.GetCurrentHealth());
+                // Debug.Log("logging enemy otherhealth AFTER : " + otherHealth.GetCurrentHealth());
 
+            }
+
+            isInvincible = true;
+
+            // Start a coroutine to reset the flag after a delay
+            StartCoroutine(ResetInvincibility());
+        }else if(isInvincible){
+            StartCoroutine(ResetInvincibility());
         }
+
+    }
+
+    private IEnumerator ResetInvincibility()
+    {
+        yield return new WaitForSeconds(attackDuration);
+        isInvincible = false;
     }
 
 }

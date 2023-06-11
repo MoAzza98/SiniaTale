@@ -4120,11 +4120,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5155314585810429389, guid: 596d360706f120642b8214cc025a4352, type: 3}
       propertyPath: knockbackDistanceX
-      value: 10
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: -5155314585810429389, guid: 596d360706f120642b8214cc025a4352, type: 3}
       propertyPath: knockbackDistanceY
-      value: 10
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 240713774573960907, guid: 596d360706f120642b8214cc025a4352, type: 3}
       propertyPath: m_RootOrder
@@ -4193,11 +4193,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 240713774573960907, guid: ce653dbe6532af04286a12e77268c26f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.82
+      value: -0.61
       objectReference: {fileID: 0}
     - target: {fileID: 240713774573960907, guid: ce653dbe6532af04286a12e77268c26f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.16
+      value: -7.98
       objectReference: {fileID: 0}
     - target: {fileID: 240713774573960907, guid: ce653dbe6532af04286a12e77268c26f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4243,6 +4243,10 @@ PrefabInstance:
       propertyPath: healthBarPrefab
       value: 
       objectReference: {fileID: 347349928545259580, guid: 451836bcdc970b04e83192acaaa64dab, type: 3}
+    - target: {fileID: 4545100668815497816, guid: ce653dbe6532af04286a12e77268c26f, type: 3}
+      propertyPath: invincibilityTime
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6366389905829649529, guid: ce653dbe6532af04286a12e77268c26f, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -4253,11 +4257,11 @@ PrefabInstance:
       objectReference: {fileID: 239659971}
     - target: {fileID: 6369599626746757901, guid: ce653dbe6532af04286a12e77268c26f, type: 3}
       propertyPath: knockbackDistanceX
-      value: 10
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 6369599626746757901, guid: ce653dbe6532af04286a12e77268c26f, type: 3}
       propertyPath: knockbackDistanceY
-      value: 10
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6672373576919638732, guid: ce653dbe6532af04286a12e77268c26f, type: 3}
       propertyPath: m_Enabled
@@ -4643,7 +4647,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.45, y: -7.47}
+  m_AnchoredPosition: {x: -33.4, y: -7.52}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1755687712
@@ -4775,7 +4779,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.033818007, y: 0.59335303}
@@ -4884,6 +4888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  attackDuration: 0.1
 --- !u!61 &1772324263
 BoxCollider2D:
   m_ObjectHideFlags: 0

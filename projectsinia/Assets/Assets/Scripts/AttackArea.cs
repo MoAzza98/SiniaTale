@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
+using TMPro;
 using UnityEngine;
 
 public class AttackArea : MonoBehaviour
@@ -20,7 +22,15 @@ public class AttackArea : MonoBehaviour
     EnemyMovement otherMovement;
     PlayerMovement playerMovement;
 
+    [SerializeField] GameObject damageNumberPrefab;
 
+    Canvas canvas;
+    TextMeshProUGUI damageText;
+
+    private void Awake()
+    {
+        canvas = FindObjectOfType<Canvas>();
+    }
 
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -37,8 +47,24 @@ public class AttackArea : MonoBehaviour
             if (otherHealth.GetCurrentHealth() > 0)
             {
                 otherHealth.TakeDamage(damage);
-
                 knockback.PlayFeedback(gameObject);
+
+                // Vector2 spawnPosition = Camera.main.WorldToScreenPoint(other.transform.position);
+                // Debug.Log("Took dam, logging spawnpos : " + spawnPosition);
+                
+                // TextMeshProUGUI tmpText = Instantiate(damageNumberPrefab, spawnPosition, Quaternion.identity).GetComponentInChildren<TextMeshProUGUI>();
+                // tmpText.text = damage.ToString();
+                // Debug.Log("Logging gameobject pos: " + tmpText.gameObject.transform.position);
+
+                RectTransform textTransform = Instantiate(damageNumberPrefab).GetComponentInChildren<DamageNumber>().GetComponent<RectTransform>();
+                textTransform.transform.position = Camera.main.WorldToScreenPoint(other.transform.position);
+                damageText = textTransform.gameObject.GetComponent<TextMeshProUGUI>();
+                damageText.text = damage.ToString();
+
+                Canvas canvas = GameObject.FindObjectOfType<Canvas>();
+                textTransform.SetParent(canvas.transform);
+
+                
 
                 // Debug.Log("logging enemy otherhealth AFTER : " + otherHealth.GetCurrentHealth());
 
@@ -48,7 +74,9 @@ public class AttackArea : MonoBehaviour
 
             // Start a coroutine to reset the flag after a delay
             StartCoroutine(ResetInvincibility());
-        }else if(isInvincible){
+        }
+        else if (isInvincible)
+        {
             StartCoroutine(ResetInvincibility());
         }
 

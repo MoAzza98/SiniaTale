@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -24,6 +25,8 @@ public class Health : MonoBehaviour
     [SerializeField] GameObject healthBarPrefab;
     HPBar myHealthBar;
     #endregion
+
+    [SerializeField] GameObject damageNumberPrefab;
 
     public int GetCurrentHealth()
     {
@@ -60,18 +63,18 @@ public class Health : MonoBehaviour
             StartCoroutine(ResetInvincibility());
             // TakeDamage(damageDealer.GetDamage());
 
-            
-            // DamageDealer damageDealer = other.GetComponent<DamageDealer>();
-            // if (damageDealer)
-            // {
-            //     TakeDamage(damageDealer.GetDamage());
-            //     knockback.PlayFeedback(other.gameObject);
 
-            // }
-            
+            DamageDealer damageDealer = other.GetComponent<DamageDealer>();
+            if (damageDealer)
+            {
+                TakeDamage(damageDealer.GetDamage());
+                // knockback.PlayFeedback(other.gameObject);
+
+            }
+
 
             // Start a coroutine to reset the flag after a delay
-            
+
         }
         //else if (!isPlayer && other.tag == "Player" && myHealthBar)
         //{
@@ -105,6 +108,15 @@ public class Health : MonoBehaviour
         myHealthBar.SetCurrentHealth(-((float)damage));
         health -= damage;
         // Debug.Log("Took Damage, your new health is: " + health);
+
+        //consider moving to attackarea to have diff types of damage popups.
+        // Vector3 spawnPosition = gameObject.transform.position;
+        
+        // spawnPosition = new Vector3(-36.5f, -7.4f, 0f);
+        // Debug.Log("Took dam, logging spawnpos : " + spawnPosition);
+        // TextMeshProUGUI tmpText = Instantiate(damageNumberPrefab, spawnPosition, Quaternion.identity).GetComponentInChildren<TextMeshProUGUI>();
+        // tmpText.text = damage.ToString();
+
         if (health <= 0 && isPlayer)
         {
             Debug.Log("You died");

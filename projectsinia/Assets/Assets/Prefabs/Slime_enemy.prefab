@@ -169,6 +169,8 @@ MonoBehaviour:
   chanceToFlipDirection: 0.25
   chaseDistance: 8
   dropChaseMultiplier: 2
+  chaseSpeed: 5
+  knockbackInvincibilityDuration: 0.1
 --- !u!61 &7324939858783083070
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -224,6 +226,7 @@ MonoBehaviour:
   isPlayer: 0
   invincibilityTime: 0
   healthBarPrefab: {fileID: 347349928545259580, guid: 451836bcdc970b04e83192acaaa64dab, type: 3}
+  damageNumberPrefab: {fileID: 6769292493534465812, guid: d05d5ac3de0d1104ca9a6fbf91c21717, type: 3}
 --- !u!114 &6369599626746757901
 MonoBehaviour:
   m_ObjectHideFlags: 0

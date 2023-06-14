@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &180179720055328239
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3868501095796762588}
+  m_Layer: 6
+  m_Name: EnemyCenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3868501095796762588
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180179720055328239}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.635, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 240713774573960907}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &790075684154116818
 GameObject:
   m_ObjectHideFlags: 0
@@ -37,6 +68,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3868501095796762588}
   - {fileID: 6366389905829649528}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -80,7 +112,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1759895761
-  m_SortingLayer: 7
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 4723107735738678597, guid: 2fc74fa7747dc0049add021cd64d7a48, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -167,9 +199,12 @@ MonoBehaviour:
   moveTimeVariance: 4
   idleTimeVariance: 2
   chanceToFlipDirection: 0.25
+  attackRadius: 0.25
+  playerTransform: {fileID: 0}
   chaseDistance: 8
   dropChaseMultiplier: 2
   chaseSpeed: 5
+  attackDistance: 1
   knockbackInvincibilityDuration: 0.1
 --- !u!61 &7324939858783083070
 BoxCollider2D:
@@ -271,7 +306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347349928545259581, guid: 451836bcdc970b04e83192acaaa64dab, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 347349928545259581, guid: 451836bcdc970b04e83192acaaa64dab, type: 3}
       propertyPath: m_LocalPosition.x

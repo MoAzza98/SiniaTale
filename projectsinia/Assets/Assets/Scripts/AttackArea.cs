@@ -21,6 +21,7 @@ public class AttackArea : MonoBehaviour
     bool isInvincible = false;
     EnemyMovement otherMovement;
     PlayerMovement playerMovement;
+    private Transform enemyTransform;
 
     [SerializeField] GameObject damageNumberPrefab;
 
@@ -39,11 +40,13 @@ public class AttackArea : MonoBehaviour
         // Debug.Log("Logging enemy and isinvincible: " + other.tag + isInvincible);
         if (other.GetComponent<Health>() && !isInvincible)
         {
+            enemyTransform = other.GetComponentInChildren<Transform>();
             knockback = other.GetComponent<Knockback>();
             otherHealth = other.GetComponent<Health>();
             otherMovement = other.GetComponent<EnemyMovement>();
             if(other.tag == "Enemy"){
                 otherMovement.PauseEnemyMovement();
+                DamagePopup.Create(enemyTransform.position, damage, false);
             }
             
             // Debug.Log("logging enemy otherhealth BEFORE : " + otherHealth.GetCurrentHealth());

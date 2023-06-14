@@ -4276,6 +4276,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6672373576919638732, guid: 596d360706f120642b8214cc025a4352, type: 3}
+      propertyPath: attackDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672373576919638732, guid: 596d360706f120642b8214cc025a4352, type: 3}
+      propertyPath: _playerLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504540275326523633, guid: 596d360706f120642b8214cc025a4352, type: 3}
+      propertyPath: damageNumberPrefab
+      value: 
+      objectReference: {fileID: 6769292493534465812, guid: d05d5ac3de0d1104ca9a6fbf91c21717, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 596d360706f120642b8214cc025a4352, type: 3}
 --- !u!1001 &1691541050
@@ -4364,6 +4376,14 @@ PrefabInstance:
     - target: {fileID: 6672373576919638732, guid: ce653dbe6532af04286a12e77268c26f, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672373576919638732, guid: ce653dbe6532af04286a12e77268c26f, type: 3}
+      propertyPath: attackDistance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672373576919638732, guid: ce653dbe6532af04286a12e77268c26f, type: 3}
+      propertyPath: _playerLayer.m_Bits
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 7324939858783083070, guid: ce653dbe6532af04286a12e77268c26f, type: 3}
       propertyPath: m_IsTrigger

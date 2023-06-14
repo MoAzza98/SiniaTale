@@ -176,6 +176,9 @@ MonoBehaviour:
   chaseSpeed: 5
   attackDistance: 1
   knockbackInvincibilityDuration: 0.1
+  _playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!61 &7324939858783083070
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -27,9 +27,13 @@ public class EnemyMovement : MonoBehaviour
     bool isChasing = false;
     [SerializeField] float chaseDistance = 3f;
     [SerializeField] float dropChaseMultiplier = 2f;
+    [SerializeField] float chaseSpeed = 5f;
+
 
     //Misc
     bool firstPatrolCall = true;
+    bool pauseMovement = false;
+    [SerializeField] float knockbackInvincibilityDuration = 0.1f;
 
 
     void Start()
@@ -43,69 +47,114 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        if(enemyRigidBody.velocity.x != 0){
-            transform.localScale = new Vector2((Mathf.Sign(enemyRigidBody.velocity.x)), 1f);
-        }
-        
-        if (isChasing)
+        if (!pauseMovement)
         {
-            isPatrolling = false;
-            if (Vector2.Distance(transform.position, playerTransform.position) > chaseDistance * dropChaseMultiplier)
+            //check if player near.
+            if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance)
             {
-                Debug.Log("Should stop chasing");
-                isChasing = false;
+                // Debug.Log("Setting is chasing to be true");
+                if (enemyRigidBody.velocity.x != 0)
+                {
+                    transform.localScale = new Vector2((Mathf.Sign(enemyRigidBody.velocity.x)), 1f);
+                }
+                isChasing = true;
+                shouldPatrol = false;
+                StopAllCoroutines();
+                ChasePlayer();
             }
             else
             {
-                ChasePlayer();
-            }
 
+
+
+                if (enemyRigidBody.velocity.x != 0)
+                {
+                    transform.localScale = new Vector2((Mathf.Sign(enemyRigidBody.velocity.x)), 1f);
+                }
+
+                if (isChasing)
+                {
+                    isPatrolling = false;
+                    shouldPatrol = false;
+                    if (Vector2.Distance(transform.position, playerTransform.position) > chaseDistance * dropChaseMultiplier)
+                    {
+                        // Debug.Log("Should stop chasing");
+                        isChasing = false;
+                        shouldPatrol = true;
+                    }
+                    else
+                    {
+                        ChasePlayer();
+                    }
+
+                }
+                else
+                {
+                    if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance)
+                    {
+                        // Debug.Log("Setting is chasing to be true");
+                        isChasing = true;
+                    }
+                    else
+                    {
+                        isChasing = false;
+                        if (!isPatrolling)
+                        {
+                            shouldPatrol = true;
+                            isPatrolling = true;
+                            // Debug.Log("Stopped chasing, should call patrol once.");
+                            if (!firstPatrolCall)
+                            {
+                                // Debug.Log("Should only show on 2nd or more calls. Anyway flipping broy");
+                                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+
+                            }
+                            firstPatrolCall = false;
+                            Patrol();
+                        }
+                    }
+
+
+                }
+            }
         }
         else
         {
-            if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance)
-            {
-                Debug.Log("Setting is chasing to be true");
-                isChasing = true;
-            }
-            else
-            {
-                isChasing = false;
-                if (!isPatrolling)
-                {
-                    shouldPatrol = true;
-                    isPatrolling = true;
-                    Debug.Log("Stopped chasing, should call patrol once.");
-                    if(!firstPatrolCall)
-                    {
-                        Debug.Log("Should only show on 2nd or more calls. Anyway flipping broy");
-                        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-                  
-                    }
-                    firstPatrolCall = false;
-                    Patrol();
-                }
-            }
-
-
+            StartCoroutine(RestartMovement());
         }
     }
 
     void ChasePlayer()
     {
-        // Debug.Log("Should be chasing... movespeed is: " + moveSpeed);
+        // Debug.Log("Should be chasing... movespeed is: " + chaseSpeed);
         enemyAnimator.SetBool("IsMoving", true);
         if (transform.position.x > playerTransform.position.x)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
-            transform.position += Vector3.left * moveSpeed2 * Time.deltaTime;
+            // transform.localScale = new Vector3(-1, 1, 1);
+            // transform.position += Vector3.left * moveSpeed2 * Time.deltaTime;
+
+            //can try addforce impulse to make it faster.
+            enemyRigidBody.velocity = new Vector2(-Mathf.Abs(chaseSpeed), 0f);
         }
         if (transform.position.x < playerTransform.position.x)
         {
-            transform.localScale = new Vector3(1, 1, 1);
-            transform.position += Vector3.right * moveSpeed2 * Time.deltaTime;
+            // transform.localScale = new Vector3(1, 1, 1);
+            // transform.position += Vector3.right * moveSpeed2 * Time.deltaTime;
+            // moveSpeed = -moveSpeed;
+            enemyRigidBody.velocity = new Vector2(Mathf.Abs(chaseSpeed), 0f);
         }
 
+    }
+
+    IEnumerator RestartMovement()
+    {
+        yield return new WaitForSeconds(knockbackInvincibilityDuration);
+        pauseMovement = false;
+    }
+
+    public void PauseEnemyMovement()
+    {
+        pauseMovement = true;
     }
 
 
@@ -119,40 +168,56 @@ public class EnemyMovement : MonoBehaviour
 
         while (shouldPatrol)
         {
-            //get random move and idle time.
-            moveTime = Random.Range(0f, moveTimeVariance);
-            idleTime = Random.Range(0f, idleTimeVariance);
-
-            //begin moving
-            float elapsedTime = 0f;
-            enemyAnimator.SetBool("IsMoving", true);
-
-
-            if (Random.Range(0f, 1f) <= chanceToFlipDirection)
+            //check if player near.
+            if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance)
             {
-                moveSpeed = -moveSpeed;
-                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-                enemyRigidBody.velocity = new Vector2(0f, 0f);
-
+                // Debug.Log("Setting is chasing to be true");
+                isChasing = true;
+                shouldPatrol = false;
+                StopAllCoroutines();
+                ChasePlayer();
             }
-
-            while (elapsedTime < moveTime)
+            else
             {
-                enemyRigidBody.velocity = new Vector2(moveSpeed, 0f);
-                elapsedTime += Time.deltaTime;
-                yield return null;
-            }
 
 
 
-            //stop moving, begin idling
-            enemyAnimator.SetBool("IsMoving", false);
-            float elapsedIdleTime = 0f;
-            while (elapsedIdleTime < idleTime)
-            {
-                enemyRigidBody.velocity = Vector2.zero;
-                elapsedIdleTime += Time.deltaTime;
-                yield return null;
+
+                //get random move and idle time.
+                moveTime = Random.Range(0f, moveTimeVariance);
+                idleTime = Random.Range(0f, idleTimeVariance);
+
+                //begin moving
+                float elapsedTime = 0f;
+                enemyAnimator.SetBool("IsMoving", true);
+
+
+                if (Random.Range(0f, 1f) <= chanceToFlipDirection)
+                {
+                    moveSpeed = -moveSpeed;
+                    transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                    enemyRigidBody.velocity = new Vector2(0f, 0f);
+
+                }
+
+                while (elapsedTime < moveTime)
+                {
+                    enemyRigidBody.velocity = new Vector2(moveSpeed, 0f);
+                    elapsedTime += Time.deltaTime;
+                    yield return null;
+                }
+
+
+
+                //stop moving, begin idling
+                enemyAnimator.SetBool("IsMoving", false);
+                float elapsedIdleTime = 0f;
+                while (elapsedIdleTime < idleTime)
+                {
+                    enemyRigidBody.velocity = Vector2.zero;
+                    elapsedIdleTime += Time.deltaTime;
+                    yield return null;
+                }
             }
         }
     }

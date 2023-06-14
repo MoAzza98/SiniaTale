@@ -34,6 +34,7 @@ public class Knockback : MonoBehaviour
         // direction += (myRigidBody.velocity).normalized;
         // myRigidBody.AddForce(new Vector2(-(direction.x * knockbackDistanceX), 0f), ForceMode2D.Impulse);
         myRigidBody.AddForce(new Vector2(direction.x * knockbackDistanceX, direction.y * knockbackDistanceY), ForceMode2D.Impulse);
+        Debug.Log(new Vector2(direction.x * knockbackDistanceX, direction.y * knockbackDistanceY));
         // StartCoroutine(ResetKnockback());
     }
 

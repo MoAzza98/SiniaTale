@@ -34,7 +34,7 @@ public class EnemyAttack : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        Debug.Log("Timer:" + timer + "Overlap: " + Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y + 2), attackRadius, _playerLayer));
+        //Debug.Log("Timer:" + timer + "Overlap: " + Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y + 2), attackRadius, _playerLayer));
         //Attacking is set to true, used in animationevent to activate the hitbox when the animation starts
         if (Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y + 2), attackRadius, _playerLayer))
         {

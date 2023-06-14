@@ -42,11 +42,10 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
-        if (!isPlayer)
-        {
-            myHealthBar = GetComponentInChildren<HPBar>();
-            myHealthBar.SetMaxHealth((float)health);
-        }
+
+        myHealthBar = GetComponentInChildren<HPBar>();
+        myHealthBar.SetMaxHealth((float)health);
+
 
     }
 
@@ -56,26 +55,26 @@ public class Health : MonoBehaviour
     #region Taking damage & knockback
     void OnTriggerStay2D(Collider2D other)
     {
-        if (isPlayer && other.tag == "Enemy" && !isInvincible)
-        {
-            knockback.PlayFeedback(other.gameObject);
-            isInvincible = true;
-            StartCoroutine(ResetInvincibility());
-            // TakeDamage(damageDealer.GetDamage());
+        // if (isPlayer && other.tag == "Enemy" && !isInvincible)
+        // {
+        //     knockback.PlayFeedback(other.gameObject);
+        //     isInvincible = true;
+        //     StartCoroutine(ResetInvincibility());
+        //     // TakeDamage(damageDealer.GetDamage());
 
 
-            DamageDealer damageDealer = other.GetComponent<DamageDealer>();
-            if (damageDealer)
-            {
-                TakeDamage(damageDealer.GetDamage());
-                // knockback.PlayFeedback(other.gameObject);
+        //     DamageDealer damageDealer = other.GetComponent<DamageDealer>();
+        //     if (damageDealer)
+        //     {
+        //         TakeDamage(damageDealer.GetDamage());
+        //         // knockback.PlayFeedback(other.gameObject);
 
-            }
+        //     }
 
 
-            // Start a coroutine to reset the flag after a delay
+        //     // Start a coroutine to reset the flag after a delay
 
-        }
+        // }
         //else if (!isPlayer && other.tag == "Player" && myHealthBar)
         //{
         // Debug.Log("Yea hit registered.");
@@ -111,7 +110,7 @@ public class Health : MonoBehaviour
 
         //consider moving to attackarea to have diff types of damage popups.
         // Vector3 spawnPosition = gameObject.transform.position;
-        
+
         // spawnPosition = new Vector3(-36.5f, -7.4f, 0f);
         // Debug.Log("Took dam, logging spawnpos : " + spawnPosition);
         // TextMeshProUGUI tmpText = Instantiate(damageNumberPrefab, spawnPosition, Quaternion.identity).GetComponentInChildren<TextMeshProUGUI>();

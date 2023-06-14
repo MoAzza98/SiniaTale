@@ -37,12 +37,15 @@ public class AttackArea : MonoBehaviour
     {
         // Debug.Log("Is this trigger even entering? : " + other);
         // Debug.Log("Logging enemy and isinvincible: " + other.tag + isInvincible);
-        if (other.tag == "Enemy" && !isInvincible)
+        if (other.GetComponent<Health>() && !isInvincible)
         {
             knockback = other.GetComponent<Knockback>();
             otherHealth = other.GetComponent<Health>();
             otherMovement = other.GetComponent<EnemyMovement>();
-            otherMovement.PauseEnemyMovement();
+            if(other.tag == "Enemy"){
+                otherMovement.PauseEnemyMovement();
+            }
+            
             // Debug.Log("logging enemy otherhealth BEFORE : " + otherHealth.GetCurrentHealth());
             if (otherHealth.GetCurrentHealth() > 0)
             {

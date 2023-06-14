@@ -12,8 +12,8 @@ public class PlayerAttack : MonoBehaviour
     private Animator anim;
     private GameObject player;
     
-    public bool attacking = false;
-    public bool specialAttacking = false;
+    [HideInInspector] public bool attacking = false;
+    [HideInInspector] public bool specialAttacking = false;
 
     private float timeToAttack = 0.1f;
     private float timer = 0f;
@@ -32,6 +32,7 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Attacking is set to true, used in animationevent to activate the hitbox when the animation starts
         if (Input.GetKeyDown(KeyCode.F))
         {
             attacking = true;

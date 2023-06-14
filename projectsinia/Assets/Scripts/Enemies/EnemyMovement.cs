@@ -14,6 +14,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] float moveTimeVariance = 10f;
     [SerializeField] float idleTimeVariance = 2f;
     [SerializeField] float chanceToFlipDirection = 0.25f;
+    [SerializeField] float attackRadius = 0.25f;
     float moveTime;
     float idleTime;
     bool isPatrolling = false;
@@ -22,7 +23,7 @@ public class EnemyMovement : MonoBehaviour
     Animator enemyAnimator;
 
     //AI Chase
-    Transform playerTransform;
+    public Transform playerTransform;
     bool isChasing = false;
     [SerializeField] float chaseDistance = 3f;
     [SerializeField] float dropChaseMultiplier = 2f;

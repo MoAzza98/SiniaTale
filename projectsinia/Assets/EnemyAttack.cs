@@ -27,8 +27,6 @@ public class EnemyAttack : MonoBehaviour
         enemy = transform.gameObject;
         attackArea = enemy.GetComponentInChildren<AttackArea>().gameObject;
         anim = GetComponent<Animator>();
-        //specialAttack = Instantiate(specialAttackArea, new Vector3(specialAttackPivot.transform.position.x + 4f, specialAttackPivot.transform.position.y), transform.rotation);
-        //specialAttack.transform.parent = specialAttackPivot.transform;
         attackArea.SetActive(attacking);
     }
 

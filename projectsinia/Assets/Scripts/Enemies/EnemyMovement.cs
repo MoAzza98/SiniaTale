@@ -28,6 +28,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] float chaseDistance = 3f;
     [SerializeField] float dropChaseMultiplier = 2f;
     [SerializeField] float chaseSpeed = 5f;
+    [SerializeField] float attackDistance = 1f;
 
 
     //Misc
@@ -47,6 +48,9 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
+        if (Vector2.Distance(transform.position, playerTransform.position) < attackDistance){
+            PauseEnemyMovement();
+        }
         if (!pauseMovement)
         {
             //check if player near.

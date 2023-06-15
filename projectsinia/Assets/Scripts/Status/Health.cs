@@ -18,6 +18,9 @@ public class Health : MonoBehaviour
     [SerializeField] float invincibilityTime = 0f;
 
     Knockback knockback;
+
+    [SerializeField] float touchEnemyKnockbackX;
+    [SerializeField] float touchEnemyKnockbackY;
     #endregion
 
     #region Healthbar
@@ -55,26 +58,22 @@ public class Health : MonoBehaviour
     #region Taking damage & knockback
     void OnTriggerStay2D(Collider2D other)
     {
-        // if (isPlayer && other.tag == "Enemy" && !isInvincible)
-        // {
-        //     knockback.PlayFeedback(other.gameObject);
-        //     isInvincible = true;
-        //     StartCoroutine(ResetInvincibility());
-        //     // TakeDamage(damageDealer.GetDamage());
+        if (isPlayer && other.tag == "Enemy" && !isInvincible)
+        {
+            knockback.PlayFeedback(other.gameObject);
+            isInvincible = true;
+            StartCoroutine(ResetInvincibility());
+            // TakeDamage(damageDealer.GetDamage());
 
 
-        //     DamageDealer damageDealer = other.GetComponent<DamageDealer>();
-        //     if (damageDealer)
-        //     {
-        //         TakeDamage(damageDealer.GetDamage());
-        //         // knockback.PlayFeedback(other.gameObject);
+            DamageDealer damageDealer = other.GetComponent<DamageDealer>();
+            if (damageDealer)
+            {
+                TakeDamage(damageDealer.GetDamage());
+                knockback.PlayFeedback(other.gameObject, touchEnemyKnockbackX, touchEnemyKnockbackY);
 
-        //     }
-
-
-        //     // Start a coroutine to reset the flag after a delay
-
-        // }
+            }
+        }
         //else if (!isPlayer && other.tag == "Player" && myHealthBar)
         //{
         // Debug.Log("Yea hit registered.");

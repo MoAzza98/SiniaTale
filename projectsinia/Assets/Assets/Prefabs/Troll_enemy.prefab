@@ -174,11 +174,11 @@ MonoBehaviour:
   chaseDistance: 8
   dropChaseMultiplier: 2
   chaseSpeed: 5
-  attackDistance: 1
+  attackDistance: 3
   knockbackInvincibilityDuration: 0.1
   _playerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
 --- !u!61 &7324939858783083070
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -192,7 +192,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.23099327, y: 0}
+  m_Offset: {x: 0.5919876, y: -0.80290914}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -203,7 +203,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3550167, y: 0.21}
+  m_Size: {x: 0.21755981, y: 1.8158183}
   m_EdgeRadius: 0
 --- !u!114 &-6421164183946744486
 MonoBehaviour:
@@ -250,7 +250,7 @@ MonoBehaviour:
   myRigidBody: {fileID: 1317774648523689705}
   knockbackStrength: 150
   knockbackDuration: 0.15
-  knockbackDistanceX: 150
+  knockbackDistanceX: 200
   knockbackDistanceY: 50
   OnBegin:
     m_PersistentCalls:
@@ -288,6 +288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4007744451492831775}
   - component: {fileID: 8504540275326523633}
+  - component: {fileID: 139600743}
   m_Layer: 6
   m_Name: AttackArea
   m_TagString: Untagged
@@ -324,7 +325,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 3
   attackDuration: 0.01
-  damageNumberPrefab: {fileID: 0}
+  damageNumberPrefab: {fileID: 6769292493534465812, guid: d05d5ac3de0d1104ca9a6fbf91c21717, type: 3}
+--- !u!61 &139600743
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7202680404731661224}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 2.0694838, y: 1.5534852}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.8773556, y: 3.1847587}
+  m_EdgeRadius: 0
 --- !u!1001 &1263171923060846863
 PrefabInstance:
   m_ObjectHideFlags: 0

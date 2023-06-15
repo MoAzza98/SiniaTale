@@ -109,7 +109,6 @@ public class EnemyMovement : MonoBehaviour
                             // Debug.Log("Stopped chasing, should call patrol once.");
                             if (!firstPatrolCall)
                             {
-                                // Debug.Log("Should only show on 2nd or more calls. Anyway flipping broy");
                                 transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 
                             }
@@ -230,12 +229,13 @@ public class EnemyMovement : MonoBehaviour
     void OnTriggerExit2D(Collider2D other)
     {
         moveSpeed = -moveSpeed;
-        FlipEnemyFacing();
+        // FlipEnemyFacing();
         enemyRigidBody.velocity = new Vector2(0f, 0f);
     }
 
     void FlipEnemyFacing()
     {
+
         transform.localScale = new Vector2(-(Mathf.Sign(enemyRigidBody.velocity.x)), 1f);
     }
 

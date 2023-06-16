@@ -28,13 +28,16 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] float chaseDistance = 3f;
     [SerializeField] float dropChaseMultiplier = 2f;
     [SerializeField] float chaseSpeed = 5f;
-    [SerializeField] float attackDistance = 1f;
+    [SerializeField] float attackDistance = 10f;
 
 
     //Misc
     bool firstPatrolCall = true;
     bool pauseMovement = false;
     [SerializeField] float knockbackInvincibilityDuration = 0.1f;
+
+    [SerializeField] public LayerMask _playerLayer;
+
 
 
     void Start()
@@ -46,11 +49,11 @@ public class EnemyMovement : MonoBehaviour
 
     }
 
+
     void Update()
     {
-        if (Vector2.Distance(transform.position, playerTransform.position) < attackDistance){
-            PauseEnemyMovement();
-        }
+     
+
         if (!pauseMovement)
         {
             //check if player near.
@@ -109,7 +112,6 @@ public class EnemyMovement : MonoBehaviour
                             // Debug.Log("Stopped chasing, should call patrol once.");
                             if (!firstPatrolCall)
                             {
-                                // Debug.Log("Should only show on 2nd or more calls. Anyway flipping broy");
                                 transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 
                             }
@@ -126,27 +128,48 @@ public class EnemyMovement : MonoBehaviour
         {
             StartCoroutine(RestartMovement());
         }
+
+
     }
 
     void ChasePlayer()
     {
         // Debug.Log("Should be chasing... movespeed is: " + chaseSpeed);
-        enemyAnimator.SetBool("IsMoving", true);
-        if (transform.position.x > playerTransform.position.x)
-        {
-            // transform.localScale = new Vector3(-1, 1, 1);
-            // transform.position += Vector3.left * moveSpeed2 * Time.deltaTime;
 
-            //can try addforce impulse to make it faster.
-            enemyRigidBody.velocity = new Vector2(-Mathf.Abs(chaseSpeed), 0f);
-        }
-        if (transform.position.x < playerTransform.position.x)
+        if (enemyAnimator.GetBool("Attacking"))
         {
-            // transform.localScale = new Vector3(1, 1, 1);
-            // transform.position += Vector3.right * moveSpeed2 * Time.deltaTime;
-            // moveSpeed = -moveSpeed;
-            enemyRigidBody.velocity = new Vector2(Mathf.Abs(chaseSpeed), 0f);
+            
+            enemyAnimator.SetBool("IsMoving", false);
+            if (transform.position.x > playerTransform.position.x)
+            {
+                enemyRigidBody.velocity = new Vector2(-Mathf.Abs(0.01f), 0f);
+            }
+            if (transform.position.x < playerTransform.position.x)
+            {
+                enemyRigidBody.velocity = new Vector2(Mathf.Abs(0.01f), 0f);
+            }
+            enemyRigidBody.velocity = Vector2.zero;
         }
+        else
+        {
+            enemyAnimator.SetBool("IsMoving", true);
+            if (transform.position.x > playerTransform.position.x)
+            {
+                // transform.localScale = new Vector3(-1, 1, 1);
+                // transform.position += Vector3.left * moveSpeed2 * Time.deltaTime;
+
+                //can try addforce impulse to make it faster.
+                enemyRigidBody.velocity = new Vector2(-Mathf.Abs(chaseSpeed), 0f);
+            }
+            if (transform.position.x < playerTransform.position.x)
+            {
+                // transform.localScale = new Vector3(1, 1, 1);
+                // transform.position += Vector3.right * moveSpeed2 * Time.deltaTime;
+                // moveSpeed = -moveSpeed;
+                enemyRigidBody.velocity = new Vector2(Mathf.Abs(chaseSpeed), 0f);
+            }
+        }
+
 
     }
 
@@ -230,12 +253,13 @@ public class EnemyMovement : MonoBehaviour
     void OnTriggerExit2D(Collider2D other)
     {
         moveSpeed = -moveSpeed;
-        FlipEnemyFacing();
+        // FlipEnemyFacing();
         enemyRigidBody.velocity = new Vector2(0f, 0f);
     }
 
     void FlipEnemyFacing()
     {
+
         transform.localScale = new Vector2(-(Mathf.Sign(enemyRigidBody.velocity.x)), 1f);
     }
 

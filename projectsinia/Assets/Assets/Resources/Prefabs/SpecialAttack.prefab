@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 2579056945697977586}
   - component: {fileID: 6798849048778185224}
   - component: {fileID: -5537312914205206691}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpecialAttack
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +99,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -682249923
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 58702b682724446469909705bca1de62, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -125,3 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
+  attackDuration: 0.1
+  isSpecial: 1
+  numberOfHits: 2
+  attackEffect: {fileID: 3357824900436210747, guid: 5622024cceb4a3247ac8a5793ae67044, type: 3}

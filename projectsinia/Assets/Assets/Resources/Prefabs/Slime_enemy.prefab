@@ -257,9 +257,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29141aa9982003242ae6759b2b0494b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 25
   isPlayer: 0
-  invincibilityTime: 0
+  invincibilityTime: 0.1
   healthBarPrefab: {fileID: 347349928545259580, guid: 451836bcdc970b04e83192acaaa64dab, type: 3}
   damageNumberPrefab: {fileID: 6769292493534465812, guid: d05d5ac3de0d1104ca9a6fbf91c21717, type: 3}
 --- !u!114 &6369599626746757901
@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce6f3d9c0484a164f8320290e2fd6a56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myRigidBody: {fileID: 0}
+  myRigidBody: {fileID: 1317774648523689705}
   knockbackStrength: 150
   knockbackDuration: 0.15
   knockbackDistanceX: 200

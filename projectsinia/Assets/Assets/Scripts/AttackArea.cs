@@ -18,27 +18,54 @@ public class AttackArea : MonoBehaviour
     int counter = 0;
 
     [SerializeField] float attackDuration = 0.01f;
+    [SerializeField] private bool isSpecial;
     bool isInvincible = false;
     EnemyMovement otherMovement;
     PlayerMovement playerMovement;
+    private Transform enemyTransform;
 
-    [SerializeField] GameObject damageNumberPrefab;
+    [SerializeField] private int numberOfHits;
+    [SerializeField] private GameObject attackEffect;
 
+    private ParticleSystem slashEffect;
     Canvas canvas;
     TextMeshProUGUI damageText;
 
-    private void Awake()
+    private GameObject obj;
+
+    private void Start()
     {
+        slashEffect = attackEffect.GetComponent<ParticleSystem>();
+        ParticleSystem.MainModule slashEffectSettings = slashEffect.main;
+        obj = Instantiate(attackEffect, transform.position, Quaternion.Euler(0, 0, gameObject.transform.parent.transform.position.z));
+        obj.SetActive(false);
+
         canvas = FindObjectOfType<Canvas>();
+    }
+
+    private void OnEnable()
+    {
+
+    }
+
+    private void Update()
+    {
+        if (isSpecial)
+        {
+            obj.SetActive(true);
+            obj.transform.rotation = gameObject.transform.parent.rotation;
+            obj.transform.parent = gameObject.transform;
+        }
     }
 
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Debug.Log("Is this trigger even entering? : " + other);
-        // Debug.Log("Logging enemy and isinvincible: " + other.tag + isInvincible);
+        
         if (other.GetComponent<Health>() && !isInvincible)
         {
+            Debug.Log("Retrieved health component");
+            enemyTransform = other.GetComponentInChildren<Transform>();
             knockback = other.GetComponent<Knockback>();
             otherHealth = other.GetComponent<Health>();
             otherMovement = other.GetComponent<EnemyMovement>();
@@ -49,8 +76,15 @@ public class AttackArea : MonoBehaviour
             // Debug.Log("logging enemy otherhealth BEFORE : " + otherHealth.GetCurrentHealth());
             if (otherHealth.GetCurrentHealth() > 0)
             {
-                otherHealth.TakeDamage(damage);
-                knockback.PlayFeedback(gameObject);
+                for(int i = 0; i <= numberOfHits - 1; i++)
+                {
+                    otherHealth.TakeDamage(damage);
+                    if (other.tag == "Enemy")
+                    {
+                        DamagePopup.Create(enemyTransform.position, damage, false);
+                    }
+                    knockback.PlayFeedback(gameObject);
+                }
 
                 // Vector2 spawnPosition = Camera.main.WorldToScreenPoint(other.transform.position);
                 // Debug.Log("Took dam, logging spawnpos : " + spawnPosition);
@@ -58,7 +92,7 @@ public class AttackArea : MonoBehaviour
                 // TextMeshProUGUI tmpText = Instantiate(damageNumberPrefab, spawnPosition, Quaternion.identity).GetComponentInChildren<TextMeshProUGUI>();
                 // tmpText.text = damage.ToString();
                 // Debug.Log("Logging gameobject pos: " + tmpText.gameObject.transform.position);
-
+                /*
                 RectTransform textTransform = Instantiate(damageNumberPrefab).GetComponentInChildren<DamageNumber>().GetComponent<RectTransform>();
                 textTransform.transform.position = Camera.main.WorldToScreenPoint(other.transform.position);
                 damageText = textTransform.gameObject.GetComponent<TextMeshProUGUI>();
@@ -66,7 +100,7 @@ public class AttackArea : MonoBehaviour
 
                 Canvas canvas = GameObject.FindObjectOfType<Canvas>();
                 textTransform.SetParent(canvas.transform);
-
+                */
                 
 
                 // Debug.Log("logging enemy otherhealth AFTER : " + otherHealth.GetCurrentHealth());
@@ -83,6 +117,11 @@ public class AttackArea : MonoBehaviour
             StartCoroutine(ResetInvincibility());
         }
 
+    }
+
+    private void OnDisable()
+    {
+        obj.SetActive(false);
     }
 
     private IEnumerator ResetInvincibility()

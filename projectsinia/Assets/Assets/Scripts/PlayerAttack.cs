@@ -17,13 +17,14 @@ public class PlayerAttack : MonoBehaviour
 
     private float energy = 100f;
     private bool energyDepleted = false;
-    private float energyCost = 30f;
-    private float rechargeRate = 10f;
+    private float energyCost = 10f;
+    private float rechargeRate = 30f;
     
     [HideInInspector] public bool attacking = false;
     [HideInInspector] public bool specialAttacking = false;
 
     [SerializeField] private TextMeshProUGUI energyNum;
+    [SerializeField] private GameViewManager GM;
 
     private float timeToAttack = 0.1f;
     private float timer = 0f;
@@ -38,6 +39,7 @@ public class PlayerAttack : MonoBehaviour
         specialAttack.transform.parent = specialAttackPivot.transform;
         attackArea.SetActive(attacking);
         energyNum.SetText(energy.ToString());
+        GM.energyScore = Mathf.RoundToInt(energy);
     }
 
     // Update is called once per frame
@@ -56,6 +58,8 @@ public class PlayerAttack : MonoBehaviour
 
                 SpecialAttack();
                 energy -= energyCost * Time.deltaTime;
+                GM.energyScore = energy;
+                Debug.Log(GM.energyScore);
                 if (energy < 0)
                 {
                     energyDepleted = true;
@@ -70,6 +74,7 @@ public class PlayerAttack : MonoBehaviour
         {
             SpecialAttackEnded();
             energy += rechargeRate * Time.deltaTime;
+            GM.energyScore = energy;
             energyNum.SetText(Mathf.RoundToInt(energy).ToString());
             if (energy >= 100)
             {

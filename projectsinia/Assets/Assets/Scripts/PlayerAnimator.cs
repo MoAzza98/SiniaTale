@@ -72,11 +72,11 @@ public class PlayerAnimator : MonoBehaviour
             anim.SetBool("Falling", false);
         }
 
-        if (pAttack.attacking)
+        if (pAttack.attacking || pAttack.specialAttacking)
         {
             anim.SetBool("Attacking", true);
         }
-        else if (!pAttack.attacking)
+        else if (!pAttack.attacking && !pAttack.specialAttacking)
         {
             anim.SetBool("Attacking", false);
         }

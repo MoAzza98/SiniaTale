@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class AttackArea : MonoBehaviour
 {
+    //We need to clean up these variables...
+    //TODO: Take a lot of these values and put them into scriptable objects, damage, crit rate, etc etc.
+    //Handle more logic in playerattack script
 
     public int damage = 3;
 
@@ -19,6 +22,8 @@ public class AttackArea : MonoBehaviour
 
     [SerializeField] float attackDuration = 0.01f;
     [SerializeField] private bool isSpecial;
+
+    private bool isCrit;
     bool isInvincible = false;
     EnemyMovement otherMovement;
     PlayerMovement playerMovement;
@@ -26,20 +31,25 @@ public class AttackArea : MonoBehaviour
 
     [SerializeField] private int numberOfHits;
     [SerializeField] private GameObject attackEffect;
+    [SerializeField] private GameObject hitEffect;
+    [SerializeField] private GameObject critHitEffect;
 
     private ParticleSystem slashEffect;
     Canvas canvas;
     TextMeshProUGUI damageText;
+    private int hitDamage;
 
     private GameObject obj;
+    private GameObject hitVFX;
+    private GameObject critVFX;
 
-    private void Start()
+    private void Awake()
     {
         slashEffect = attackEffect.GetComponent<ParticleSystem>();
         ParticleSystem.MainModule slashEffectSettings = slashEffect.main;
         obj = Instantiate(attackEffect, transform.position, Quaternion.Euler(0, 0, gameObject.transform.parent.transform.position.z));
         obj.SetActive(false);
-
+        hitDamage = damage;
         canvas = FindObjectOfType<Canvas>();
     }
 
@@ -61,7 +71,6 @@ public class AttackArea : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
         if (other.GetComponent<Health>() && !isInvincible)
         {
             Debug.Log("Retrieved health component");
@@ -78,10 +87,28 @@ public class AttackArea : MonoBehaviour
             {
                 for(int i = 0; i <= numberOfHits - 1; i++)
                 {
-                    otherHealth.TakeDamage(damage);
+                    hitDamage = damage;
+                    if (Random.Range(1, 100) > 70f)
+                    {
+                        isCrit = true;
+                        hitDamage = hitDamage * 2;
+                        if (isSpecial)
+                        {
+                            critVFX = Instantiate(critHitEffect, transform.position, Quaternion.identity);
+                        }
+                    } else
+                    {
+                        isCrit = false;
+                        if (isSpecial)
+                        {
+                            hitVFX = Instantiate(hitEffect, transform.position, Quaternion.identity);
+                        }
+                    }
+                    otherHealth.TakeDamage(hitDamage);
                     if (other.tag == "Enemy")
                     {
-                        DamagePopup.Create(enemyTransform.position, damage, false);
+                        CinemachineShake.Instance.ShakeCamera(4f, 0.2f);
+                        DamagePopup.Create(enemyTransform.position, hitDamage, isCrit);
                     }
                     knockback.PlayFeedback(gameObject);
                 }

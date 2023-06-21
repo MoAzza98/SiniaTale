@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: troll_attack
+  m_Name: wolf_attack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -21,7 +21,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 3ee75a7ae674bea4998f764c11b5500a, type: 2}
+  m_Motion: {fileID: 7400000, guid: da4c88c378e7c67449c63f3873f56e8f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -137,7 +137,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Troll
+  m_Name: WolfAnimController
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: IsMoving
@@ -145,13 +145,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: Attacking
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -172,7 +172,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: troll_idle
+  m_Name: wolf_idle
   m_Speed: 0.3
   m_CycleOffset: 0
   m_Transitions:
@@ -186,7 +186,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e871b015ce818f84ba21319ff60bfa08, type: 2}
+  m_Motion: {fileID: 7400000, guid: 3288f17909b148844bf183bc76e5d316, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -199,7 +199,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: troll_run
+  m_Name: wolf_run
   m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
@@ -213,7 +213,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: afea9173f08d2b04797b0d42eb1bcaeb, type: 2}
+  m_Motion: {fileID: 7400000, guid: 97c0ba0a53972474684e0aad1939ca7c, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

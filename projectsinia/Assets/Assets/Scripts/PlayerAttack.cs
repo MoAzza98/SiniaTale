@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerAttack : MonoBehaviour
 {
+
+    //move all of this into a scriptable object later
     public GameObject specialAttackArea;
     public GameObject specialAttackPivot;
 
@@ -11,9 +14,17 @@ public class PlayerAttack : MonoBehaviour
     private GameObject attackArea;
     private Animator anim;
     private GameObject player;
+
+    private float energy = 100f;
+    private bool energyDepleted = false;
+    private float energyCost = 10f;
+    private float rechargeRate = 30f;
     
     [HideInInspector] public bool attacking = false;
     [HideInInspector] public bool specialAttacking = false;
+
+    [SerializeField] private TextMeshProUGUI energyNum;
+    [SerializeField] private GameViewManager GM;
 
     private float timeToAttack = 0.1f;
     private float timer = 0f;
@@ -27,6 +38,8 @@ public class PlayerAttack : MonoBehaviour
         specialAttack = Instantiate(specialAttackArea, new Vector3(specialAttackPivot.transform.position.x + 4f, specialAttackPivot.transform.position.y), transform.rotation);
         specialAttack.transform.parent = specialAttackPivot.transform;
         attackArea.SetActive(attacking);
+        energyNum.SetText(energy.ToString());
+        GM.energyScore = Mathf.RoundToInt(energy);
     }
 
     // Update is called once per frame
@@ -38,10 +51,38 @@ public class PlayerAttack : MonoBehaviour
             attacking = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (!energyDepleted)
         {
-            SpecialAttack();
+            if (Input.GetKey(KeyCode.Mouse0))
+            {
+
+                SpecialAttack();
+                energy -= energyCost * Time.deltaTime;
+                GM.energyScore = energy;
+                Debug.Log(GM.energyScore);
+                if (energy < 0)
+                {
+                    energyDepleted = true;
+                }
+                energyNum.SetText(Mathf.RoundToInt(energy).ToString());
+            }
+            else
+            {
+                SpecialAttackEnded();
+            }
+        } else
+        {
+            SpecialAttackEnded();
+            energy += rechargeRate * Time.deltaTime;
+            GM.energyScore = energy;
+            energyNum.SetText(Mathf.RoundToInt(energy).ToString());
+            if (energy >= 100)
+            {
+                energy = 100;
+                energyDepleted = false;
+            }
         }
+        /*
         if (specialAttacking)
         {
             timer += Time.deltaTime;

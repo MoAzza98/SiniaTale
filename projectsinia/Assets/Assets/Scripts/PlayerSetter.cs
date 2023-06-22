@@ -5,13 +5,13 @@ using Cinemachine;
 
 public class PlayerSetter : MonoBehaviour
 {
-    CinemachineVirtualCamera vcam;
+    private CinemachineVirtualCamera vcam;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         //Get the virtual cam
         vcam = GetComponent<CinemachineVirtualCamera>();
-        SetPlayerCam();
+        //SetPlayerCam();
     }
 
     // Update is called once per frame

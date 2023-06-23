@@ -131,7 +131,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 15
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3efd3278a7b985b4388b0f909f32e2c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 6
   shouldPatrol: 1
   moveTimeVariance: 4
   idleTimeVariance: 2
@@ -174,7 +174,7 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   chaseDistance: 8
   dropChaseMultiplier: 2
-  chaseSpeed: 5
+  chaseSpeed: 8
   attackDistance: 1
   knockbackInvincibilityDuration: 0.1
   _playerLayer:
@@ -193,7 +193,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.23099327, y: 0}
+  m_Offset: {x: 0.58056164, y: -0.40577734}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -204,7 +204,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3550167, y: 0.21}
+  m_Size: {x: 0.30675888, y: 1.69785}
   m_EdgeRadius: 0
 --- !u!114 &-6421164183946744486
 MonoBehaviour:
@@ -234,6 +234,8 @@ MonoBehaviour:
   health: 100
   isPlayer: 0
   invincibilityTime: 0
+  touchEnemyKnockbackX: 0
+  touchEnemyKnockbackY: 0
   healthBarPrefab: {fileID: 347349928545259580, guid: 451836bcdc970b04e83192acaaa64dab, type: 3}
   damageNumberPrefab: {fileID: 6769292493534465812, guid: d05d5ac3de0d1104ca9a6fbf91c21717, type: 3}
 --- !u!114 &-5155314585810429389
@@ -357,8 +359,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 3
   attackDuration: 0.01
+  isSpecial: 0
   numberOfHits: 1
   attackEffect: {fileID: 0}
+  hitEffect: {fileID: 0}
+  critHitEffect: {fileID: 0}
 --- !u!61 &139600743
 BoxCollider2D:
   m_ObjectHideFlags: 0

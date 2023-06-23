@@ -40,6 +40,7 @@ public class EnemyMovement : MonoBehaviour
 
 
 
+
     void Start()
     {
         enemyRigidBody = GetComponent<Rigidbody2D>();
@@ -50,10 +51,12 @@ public class EnemyMovement : MonoBehaviour
     }
 
 
+
     void Update()
     {
-     
-
+        if(!GetComponent<Collider2D>().IsTouchingLayers(LayerMask.GetMask("Ground"))){
+            PauseEnemyMovement();
+        }
         if (!pauseMovement)
         {
             //check if player near.
@@ -252,9 +255,16 @@ public class EnemyMovement : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
+        Debug.Log("trigger exit triggered... other is: ");
+        Debug.Log(other);
         moveSpeed = -moveSpeed;
         // FlipEnemyFacing();
         enemyRigidBody.velocity = new Vector2(0f, 0f);
+        if(isChasing){
+            PauseEnemyMovement();
+        }else{
+            FlipEnemyFacing();
+        }
     }
 
     void FlipEnemyFacing()

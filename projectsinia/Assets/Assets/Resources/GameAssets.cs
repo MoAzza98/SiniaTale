@@ -17,6 +17,7 @@ public class GameAssets : MonoBehaviour
     }
 
     public Transform damagePopup;
+    public GameObject gameManager;
 
     /*
     [HideInInspector] public Transform pfDamageParent;

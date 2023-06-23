@@ -14,24 +14,25 @@ public class PlayerAttack : MonoBehaviour
     private GameObject attackArea;
     private Animator anim;
     private GameObject player;
+    private GameViewManager GM;
 
-    private float energy = 100f;
     private bool energyDepleted = false;
-    private float energyCost = 10f;
-    private float rechargeRate = 30f;
+    private float timeToAttack = 0.1f;
+    private float timer = 0f;
     
     [HideInInspector] public bool attacking = false;
     [HideInInspector] public bool specialAttacking = false;
 
+    [SerializeField] private float energy = 100f;
+    [SerializeField] private float energyCost = 10f;
+    [SerializeField] private float rechargeRate = 30f;
     [SerializeField] private TextMeshProUGUI energyNum;
-    [SerializeField] private GameViewManager GM;
 
-    private float timeToAttack = 0.1f;
-    private float timer = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
+        GM = GameObject.Find("GameManager").GetComponent<GameViewManager>();
         anim = GetComponent<Animator>();
         player = transform.parent.gameObject;
         attackArea = player.GetComponentInChildren<AttackArea>().gameObject;

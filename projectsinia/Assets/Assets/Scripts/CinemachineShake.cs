@@ -12,6 +12,10 @@ public class CinemachineShake : MonoBehaviour
     private float startingIntensity;
     private float shakeTimerTotal;
 
+    [SerializeField] float heavyIntensity;
+    [SerializeField] float heavyTime;
+
+
     void Awake()
     {
         Instance = this;
@@ -27,6 +31,11 @@ public class CinemachineShake : MonoBehaviour
         shakeTimerTotal = time;
         shakeTimer = time;
 
+    }
+
+    void HeavyShake()
+    {
+        ShakeCamera(heavyIntensity, heavyTime);
     }
 
     void Update()

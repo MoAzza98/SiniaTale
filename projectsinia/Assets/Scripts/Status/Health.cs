@@ -30,6 +30,7 @@ public class Health : MonoBehaviour
     #endregion
 
     [SerializeField] GameObject damageNumberPrefab;
+    private GameViewManager GManager;
 
     public int GetCurrentHealth()
     {
@@ -45,6 +46,10 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
+        if (isPlayer)
+        {
+            GManager = GameObject.Find("GameManager").GetComponent<GameViewManager>();
+        }
 
         myHealthBar = GetComponentInChildren<HPBar>();
         myHealthBar.SetMaxHealth((float)health);
@@ -117,6 +122,7 @@ public class Health : MonoBehaviour
 
         if (health <= 0 && isPlayer)
         {
+            GManager.GameOver();
             Debug.Log("You died");
         }
         else if (health <= 0 && !isPlayer)

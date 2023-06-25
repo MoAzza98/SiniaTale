@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec354493c6672cd41bf48d14fdf02d8d, type: 3}
   m_Name: BaseChara
   m_EditorClassIdentifier: 
-  gravityStrength: -68.75
-  gravityScale: 3.4375
+  gravityStrength: -75
+  gravityScale: 3.75
   fallGravityMult: 5
   maxFallSpeed: 25
   fastFallGravityMult: 10
@@ -23,22 +23,22 @@ MonoBehaviour:
   runAccelAmount: 24.358974
   runDecceleration: 9.5
   runDeccelAmount: 24.358974
-  accelInAir: 1
-  deccelInAir: 1
+  accelInAir: 0.6
+  deccelInAir: 0.6
   doConserveMomentum: 0
-  jumpHeight: 5.5
+  jumpHeight: 6
   jumpTimeToApex: 0.4
-  jumpForce: 27.5
+  jumpForce: 30
   bonusJumps: 1
   jumpCutGravityMult: 3.5
   jumpHangGravityMult: 0.5
-  jumpHangTimeThreshold: 0
+  jumpHangTimeThreshold: 0.05
   jumpHangAccelerationMult: 1
   jumpHangMaxSpeedMult: 1
-  wallJumpForce: {x: 20, y: 30}
-  wallJumpRunLerp: 0.075
-  wallJumpTime: 0.55
-  doTurnOnWallJump: 1
+  wallJumpForce: {x: 20, y: 28}
+  wallJumpRunLerp: 0.1
+  wallJumpTime: 0.3
+  doTurnOnWallJump: 0
   slideSpeed: -12
   slideAccel: 12
   coyoteTime: 0.2

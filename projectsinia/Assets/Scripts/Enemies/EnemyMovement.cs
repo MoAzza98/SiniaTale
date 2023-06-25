@@ -38,21 +38,19 @@ public class EnemyMovement : MonoBehaviour
 
     [SerializeField] public LayerMask _playerLayer;
 
-
-
     void Start()
     {
         enemyRigidBody = GetComponent<Rigidbody2D>();
         enemyAnimator = GetComponent<Animator>();
-        playerTransform = FindObjectOfType<PlayerAttack>().GetComponent<Transform>();
         moveSpeed2 = moveSpeed;
-
     }
 
 
     void Update()
     {
-     
+        if(playerTransform == null){
+            playerTransform = GameObject.Find("Player").transform;
+        }
 
         if (!pauseMovement)
         {

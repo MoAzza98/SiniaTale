@@ -34,7 +34,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 790075684154116818}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.9904747, y: -2.5617855, z: 0.26260552}
+  m_LocalPosition: {x: 33.1955, y: -2.5618, z: 0.2626}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -150,8 +150,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.49538708, y: 1.8218188}
-  m_Size: {x: 2.7006073, y: 3.6336374}
+  m_Offset: {x: -0.41175166, y: 1.9845337}
+  m_Size: {x: 2.6265466, y: 3.8598988}
   m_Direction: 0
 --- !u!114 &6672373576919638732
 MonoBehaviour:
@@ -179,7 +179,7 @@ MonoBehaviour:
   knockbackInvincibilityDuration: 0.1
   _playerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
 --- !u!61 &7324939858783083070
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -193,18 +193,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.23099327, y: 0}
+  m_Offset: {x: -0.29577416, y: 0.00894165}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 10.75, y: 7.5}
+    oldSize: {x: 43, y: 30}
     newSize: {x: 0.86, y: 0.6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3550167, y: 0.21}
+  m_Size: {x: 1.3385288, y: 0.72860646}
   m_EdgeRadius: 0
 --- !u!114 &-6421164183946744486
 MonoBehaviour:
@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc0a8d10252ed5a43946b51829346b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 100
 --- !u!114 &5399719318441374502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29141aa9982003242ae6759b2b0494b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 250
   isPlayer: 0
   invincibilityTime: 0
   healthBarPrefab: {fileID: 347349928545259580, guid: 451836bcdc970b04e83192acaaa64dab, type: 3}
@@ -355,10 +355,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e256bbaef905b9429ed7dfcc2e21000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 50
   attackDuration: 0.01
+  isSpecial: 0
   numberOfHits: 1
   attackEffect: {fileID: 0}
+  hitEffect: {fileID: 0}
+  critHitEffect: {fileID: 0}
 --- !u!61 &139600743
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -372,7 +375,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.8579035, y: 1.5534852}
+  m_Offset: {x: 3.0324543, y: 2.040323}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -383,7 +386,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.454195, y: 3.1847587}
+  m_Size: {x: 4.8032994, y: 4.1584344}
   m_EdgeRadius: 0
 --- !u!1001 &1263171923060846863
 PrefabInstance:
@@ -401,12 +404,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 347349928545259581, guid: 451836bcdc970b04e83192acaaa64dab, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 347349928545259581, guid: 451836bcdc970b04e83192acaaa64dab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.03
+      value: -0.21
       objectReference: {fileID: 0}
     - target: {fileID: 347349928545259581, guid: 451836bcdc970b04e83192acaaa64dab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.65
+      value: 12.65
       objectReference: {fileID: 0}
     - target: {fileID: 347349928545259581, guid: 451836bcdc970b04e83192acaaa64dab, type: 3}
       propertyPath: m_LocalPosition.z

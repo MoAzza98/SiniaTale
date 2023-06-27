@@ -60,7 +60,7 @@ public class PlayerAttack : MonoBehaviour
                 SpecialAttack();
                 energy -= energyCost * Time.deltaTime;
                 GM.energyScore = energy;
-                Debug.Log(GM.energyScore);
+                // Debug.Log(GM.energyScore);
                 if (energy < 0)
                 {
                     energyDepleted = true;

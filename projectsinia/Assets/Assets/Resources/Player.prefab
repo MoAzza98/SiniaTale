@@ -305,11 +305,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29141aa9982003242ae6759b2b0494b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 100000
   isPlayer: 1
   invincibilityTime: 1
+  touchEnemyKnockbackX: 0
+  touchEnemyKnockbackY: 0
   healthBarPrefab: {fileID: 8391412259398954792}
   damageNumberPrefab: {fileID: 0}
+  despawnTime: 3
+  gameOverTime: 3
 --- !u!114 &337739383712147980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -784,11 +788,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   specialAttackArea: {fileID: 1779971785508367487, guid: 6eea354be7da30041af49afc68a2bf8c, type: 3}
   specialAttackPivot: {fileID: 337739384235776057}
+  attacking: 0
+  specialAttacking: 0
   energy: 100
   energyCost: 20
   rechargeRate: 30
-  attacking: 0
-  specialAttacking: 0
   energyNum: {fileID: 337739384962398815}
 --- !u!1 &337739384962398813
 GameObject:

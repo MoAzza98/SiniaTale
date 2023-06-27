@@ -73,7 +73,6 @@ public class AttackArea : MonoBehaviour
     {
         if (other.GetComponent<Health>() && !isInvincible)
         {
-            Debug.Log("Retrieved health component");
             enemyTransform = other.GetComponentInChildren<Transform>();
             knockback = other.GetComponent<Knockback>();
             otherHealth = other.GetComponent<Health>();
@@ -110,7 +109,8 @@ public class AttackArea : MonoBehaviour
                         CinemachineShake.Instance.ShakeCamera(4f, 0.2f);
                         DamagePopup.Create(enemyTransform.position, hitDamage, isCrit);
                     }
-                    knockback.PlayFeedback(gameObject);
+
+                    knockback.PlayFeedback(gameObject.transform.parent.gameObject);
                 }
 
                 // Vector2 spawnPosition = Camera.main.WorldToScreenPoint(other.transform.position);

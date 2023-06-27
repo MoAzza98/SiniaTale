@@ -20,6 +20,9 @@ public class PlayerAnimator : MonoBehaviour
     public bool isMidair { private get; set; }
     private float currentY;
 
+    private bool isDead = false;
+    private bool deathAnimPlayed = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,40 +48,66 @@ public class PlayerAnimator : MonoBehaviour
 
     void UpdateAnimationState()
     {
-        anim.SetFloat("Vel X", Mathf.Abs(mov.RB.velocity.x));
-        currentY = mov.RB.velocity.y;
-        anim.SetFloat("Vel Y", currentY);
+        if (!deathAnimPlayed)
+        {
+            anim.SetFloat("Vel X", Mathf.Abs(mov.RB.velocity.x));
+            currentY = mov.RB.velocity.y;
+            anim.SetFloat("Vel Y", currentY);
 
-        if (justLanded)
-        {
-            anim.SetTrigger("JustLanded");
-            GameObject obj = Instantiate(landFX, transform.position - (Vector3.up * transform.localScale.y / 1.5f), Quaternion.Euler(-90, 0, 0));
-            Destroy(obj, 1);
-            justLanded = false;
-        }
-        
-        if (justJumped)
-        {
-            anim.SetTrigger("JustJumped");
-            GameObject obj = Instantiate(jumpFX, transform.position - (Vector3.up * transform.localScale.y / 2), Quaternion.Euler(-90, 0, 0));
-            Destroy(obj, 1);
-            justJumped = false;
-        }
-        if (mov.RB.velocity.y < -0.01f && mov.LastOnGroundTime < 0.1f)
-        {
-            anim.SetBool("Falling", true);
-        } else
-        {
-            anim.SetBool("Falling", false);
-        }
+            if (justLanded)
+            {
+                anim.SetTrigger("JustLanded");
+                GameObject obj = Instantiate(landFX, transform.position - (Vector3.up * transform.localScale.y / 1.5f), Quaternion.Euler(-90, 0, 0));
+                Destroy(obj, 1);
+                justLanded = false;
+            }
 
-        if (pAttack.attacking || pAttack.specialAttacking)
-        {
-            anim.SetBool("Attacking", true);
-        }
-        else if (!pAttack.attacking && !pAttack.specialAttacking)
-        {
+            if (justJumped)
+            {
+                anim.SetTrigger("JustJumped");
+                GameObject obj = Instantiate(jumpFX, transform.position - (Vector3.up * transform.localScale.y / 2), Quaternion.Euler(-90, 0, 0));
+                Destroy(obj, 1);
+                justJumped = false;
+            }
+            if (mov.RB.velocity.y < -0.01f && mov.LastOnGroundTime < 0.1f)
+            {
+                anim.SetBool("Falling", true);
+            }
+            else
+            {
+                anim.SetBool("Falling", false);
+            }
+
+            if (pAttack.attacking || pAttack.specialAttacking)
+            {
+                anim.SetBool("Attacking", true);
+            }
+            else if (!pAttack.attacking && !pAttack.specialAttacking)
+            {
+                anim.SetBool("Attacking", false);
+            }
+
+
+            if (isDead)
+            {
+                anim.SetTrigger("Die");
+                isDead = false;
+                deathAnimPlayed = true;
+            }
+        }else{
+
+            // anim.SetTrigger("Die");
             anim.SetBool("Attacking", false);
         }
+
+
+
+
+    }
+
+    public void KillPlayer()
+    {
+        Debug.Log("in killplayer... setting isdead to true");
+        isDead = true;
     }
 }

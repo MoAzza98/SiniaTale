@@ -217,6 +217,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
+  attackDuration: 0.01
+  isSpecial: 0
+  numberOfHits: 0
+  attackEffect: {fileID: 0}
+  hitEffect: {fileID: 0}
+  critHitEffect: {fileID: 0}
 --- !u!1 &7401511487741172364
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,9 +453,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29141aa9982003242ae6759b2b0494b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 100
   isPlayer: 1
   invincibilityTime: 5
+  touchEnemyKnockbackX: 0
+  touchEnemyKnockbackY: 0
+  healthBarPrefab: {fileID: 0}
+  damageNumberPrefab: {fileID: 0}
+  despawnTime: 3
+  gameOverTime: 3
 --- !u!1 &7401511488178219245
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,7 +573,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -959444073
-  m_SortingLayer: 6
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: -7385789195546760866, guid: 9745dbe09bc4dc14291159778ab18df2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -678,6 +690,10 @@ MonoBehaviour:
   specialAttackPivot: {fileID: 7401511487192377482}
   attacking: 0
   specialAttacking: 0
+  energy: 100
+  energyCost: 10
+  rechargeRate: 30
+  energyNum: {fileID: 0}
 --- !u!1 &7401511488964906079
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,7 +765,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -959444073
-  m_SortingLayer: 6
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 07cdf471c17d5e2408f9d275c1c5dc36, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

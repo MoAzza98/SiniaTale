@@ -31,7 +31,10 @@ public class Health : MonoBehaviour
 
     [SerializeField] GameObject damageNumberPrefab;
     private GameViewManager GManager;
-    private PlayerMovement pMovement;
+
+    [SerializeField] float despawnTime = 3f;
+    Animator myAnimator;
+    [SerializeField] float gameOverTime = 3f;
 
     public int GetCurrentHealth()
     {
@@ -43,6 +46,7 @@ public class Health : MonoBehaviour
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         knockback = GetComponent<Knockback>();
+        myAnimator = GetComponent<Animator>();
     }
 
     private void Start()
@@ -50,7 +54,6 @@ public class Health : MonoBehaviour
         if (isPlayer)
         {
             GManager = GameObject.Find("GameManager").GetComponent<GameViewManager>();
-            pMovement = GetComponent<PlayerMovement>();
         }
 
         myHealthBar = GetComponentInChildren<HPBar>();
@@ -68,6 +71,7 @@ public class Health : MonoBehaviour
         if (isPlayer && other.tag == "Enemy" && !isInvincible)
         {
             knockback.PlayFeedback(other.gameObject);
+       
             isInvincible = true;
             StartCoroutine(ResetInvincibility());
             // TakeDamage(damageDealer.GetDamage());
@@ -76,6 +80,7 @@ public class Health : MonoBehaviour
             DamageDealer damageDealer = other.GetComponent<DamageDealer>();
             if (damageDealer)
             {
+               
                 TakeDamage(damageDealer.GetDamage());
                 knockback.PlayFeedback(other.gameObject, touchEnemyKnockbackX, touchEnemyKnockbackY);
 
@@ -124,17 +129,48 @@ public class Health : MonoBehaviour
 
         if (health <= 0 && isPlayer)
         {
-            GManager.GameOver();
-            pMovement.enabled = false;
+
             Debug.Log("You died");
+            GetComponent<PlayerAnimator>().KillPlayer();
+            Invoke("GameOver", gameOverTime);
+            // GManager.GameOver();
+            myRigidBody.constraints = RigidbodyConstraints2D.FreezePositionX;
+            gameObject.layer = LayerMask.NameToLayer("Dead");
+            gameObject.tag = "Dead";
+            GetComponent<PlayerMovement>().enabled = false;
+            GetComponentInChildren<PlayerAttack>().AttackEnded();
+            GetComponentInChildren<PlayerAttack>().enabled = false;
+            GetComponentInChildren<AttackArea>().enabled = false;
+            // myAnimator.SetBool("Attacking", false);
+            // if(GetComponentInChildren<AttackArea>().enabled){
+            //     GetComponentInChildren<AttackArea>().enabled = false;
+            // }
+
+
+
+
+
+
+
+            // GameOver();
+
+
+
         }
         else if (health <= 0 && !isPlayer)
         {
-            Destroy(gameObject);
+            myAnimator.SetTrigger("Die");
+            myRigidBody.constraints = RigidbodyConstraints2D.FreezePositionX;
+            GetComponent<EnemyMovement>().killEnemy();
+
+            Destroy(gameObject, despawnTime);
         }
 
 
     }
     #endregion
-
+    void GameOver()
+    {
+        GManager.GameOver();
+    }
 }

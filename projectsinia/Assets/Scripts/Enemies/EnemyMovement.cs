@@ -38,6 +38,10 @@ public class EnemyMovement : MonoBehaviour
 
     [SerializeField] public LayerMask _playerLayer;
 
+    PlayerMovement player;
+    bool postDeathPatrol = false;
+    private bool isDead = false;
+
     void Start()
     {
         enemyRigidBody = GetComponent<Rigidbody2D>();
@@ -48,83 +52,112 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        if(playerTransform == null){
-            playerTransform = GameObject.Find("Player").transform;
-        }
+        player = FindObjectOfType<PlayerMovement>();
 
-        if (!pauseMovement)
+
+        if (player.gameObject.tag == "Player")
         {
-            //check if player near.
-            if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance)
+            if (playerTransform == null)
             {
-                // Debug.Log("Setting is chasing to be true");
-                if (enemyRigidBody.velocity.x != 0)
-                {
-                    transform.localScale = new Vector2((Mathf.Sign(enemyRigidBody.velocity.x)), 1f);
-                }
-                isChasing = true;
-                shouldPatrol = false;
-                StopAllCoroutines();
-                ChasePlayer();
+                playerTransform = GameObject.Find("Player").transform;
             }
-            else
+
+            if (!pauseMovement)
             {
-
-
-
-                if (enemyRigidBody.velocity.x != 0)
+                //check if player near.
+                if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance)
                 {
-                    transform.localScale = new Vector2((Mathf.Sign(enemyRigidBody.velocity.x)), 1f);
-                }
-
-                if (isChasing)
-                {
-                    isPatrolling = false;
+                    // Debug.Log("Setting is chasing to be true");
+                    if (enemyRigidBody.velocity.x != 0)
+                    {
+                        transform.localScale = new Vector2((Mathf.Sign(enemyRigidBody.velocity.x)), 1f);
+                    }
+                    isChasing = true;
                     shouldPatrol = false;
-                    if (Vector2.Distance(transform.position, playerTransform.position) > chaseDistance * dropChaseMultiplier)
-                    {
-                        // Debug.Log("Should stop chasing");
-                        isChasing = false;
-                        shouldPatrol = true;
-                    }
-                    else
-                    {
-                        ChasePlayer();
-                    }
-
+                    StopAllCoroutines();
+                    ChasePlayer();
                 }
                 else
                 {
-                    if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance)
+
+
+
+                    if (enemyRigidBody.velocity.x != 0)
                     {
-                        // Debug.Log("Setting is chasing to be true");
-                        isChasing = true;
+                        transform.localScale = new Vector2((Mathf.Sign(enemyRigidBody.velocity.x)), 1f);
+                    }
+
+                    if (isChasing)
+                    {
+                        isPatrolling = false;
+                        shouldPatrol = false;
+                        if (Vector2.Distance(transform.position, playerTransform.position) > chaseDistance * dropChaseMultiplier)
+                        {
+                            // Debug.Log("Should stop chasing");
+                            isChasing = false;
+                            shouldPatrol = true;
+                        }
+                        else
+                        {
+                            ChasePlayer();
+                        }
+
                     }
                     else
                     {
-                        isChasing = false;
-                        if (!isPatrolling)
+                        if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance)
                         {
-                            shouldPatrol = true;
-                            isPatrolling = true;
-                            // Debug.Log("Stopped chasing, should call patrol once.");
-                            if (!firstPatrolCall)
-                            {
-                                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-
-                            }
-                            firstPatrolCall = false;
-                            Patrol();
+                            // Debug.Log("Setting is chasing to be true");
+                            isChasing = true;
                         }
+                        else
+                        {
+                            isChasing = false;
+                            if (!isPatrolling)
+                            {
+                                shouldPatrol = true;
+                                isPatrolling = true;
+                                // Debug.Log("Stopped chasing, should call patrol once.");
+                                if (!firstPatrolCall)
+                                {
+                                    transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+
+                                }
+                                firstPatrolCall = false;
+                                Patrol();
+                            }
+                        }
+
+
                     }
-
-
                 }
             }
+            else
+            {
+                if (!isDead)
+                {
+                    StartCoroutine(RestartMovement());
+                }
+
+            }
         }
+
         else
         {
-            StartCoroutine(RestartMovement());
+            if (!postDeathPatrol)
+            {
+                if (enemyRigidBody.velocity.x != 0)
+                {
+                    transform.localScale = new Vector2((Mathf.Sign(enemyRigidBody.velocity.x)), 1f);
+                }
+
+                StopAllCoroutines();
+                isChasing = false;
+                shouldPatrol = true;
+                postDeathPatrol = true;
+                Patrol();
+            }
+
         }
 
 
@@ -136,7 +169,7 @@ public class EnemyMovement : MonoBehaviour
 
         if (enemyAnimator.GetBool("Attacking"))
         {
-            
+
             enemyAnimator.SetBool("IsMoving", false);
             if (transform.position.x > playerTransform.position.x)
             {
@@ -150,6 +183,7 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
+            // Debug.Log("we are in the else block. should be following player.");
             enemyAnimator.SetBool("IsMoving", true);
             if (transform.position.x > playerTransform.position.x)
             {
@@ -194,7 +228,7 @@ public class EnemyMovement : MonoBehaviour
         while (shouldPatrol)
         {
             //check if player near.
-            if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance)
+            if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance && player.gameObject.tag == "Player")
             {
                 // Debug.Log("Setting is chasing to be true");
                 isChasing = true;
@@ -251,14 +285,39 @@ public class EnemyMovement : MonoBehaviour
     void OnTriggerExit2D(Collider2D other)
     {
         moveSpeed = -moveSpeed;
-        // FlipEnemyFacing();
         enemyRigidBody.velocity = new Vector2(0f, 0f);
+        if (isChasing)
+        {
+            PauseEnemyMovement();
+        }
+        else
+        {
+
+            if (!postDeathPatrol)
+            {
+                Debug.Log("flipped enemy facing 1");
+                FlipEnemyFacing();
+            }
+
+        }
     }
 
     void FlipEnemyFacing()
     {
 
         transform.localScale = new Vector2(-(Mathf.Sign(enemyRigidBody.velocity.x)), 1f);
+    }
+
+    public void killEnemy()
+    {
+        isDead = true;
+        GetComponent<EnemyMovement>().enabled = false;
+        GetComponent<EnemyAttack>().enabled = false;
+        GetComponent<Knockback>().enabled = false;
+        gameObject.tag = "Dead";
+        gameObject.layer = LayerMask.NameToLayer("Dead");
+        // enemyRigidBody.velocity = Vector2.zero;
+        // pauseMovement = true;
     }
 
 

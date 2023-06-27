@@ -784,11 +784,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   specialAttackArea: {fileID: 1779971785508367487, guid: 6eea354be7da30041af49afc68a2bf8c, type: 3}
   specialAttackPivot: {fileID: 337739384235776057}
+  attacking: 0
+  specialAttacking: 0
   energy: 100
   energyCost: 20
   rechargeRate: 30
-  attacking: 0
-  specialAttacking: 0
   energyNum: {fileID: 337739384962398815}
 --- !u!1 &337739384962398813
 GameObject:
@@ -801,7 +801,7 @@ GameObject:
   - component: {fileID: 337739384962398812}
   - component: {fileID: 337739384962398814}
   - component: {fileID: 337739384962398815}
-  m_Layer: 7
+  m_Layer: 5
   m_Name: CurrentEnergyNum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -972,7 +972,7 @@ GameObject:
   - component: {fileID: 337739385084747171}
   - component: {fileID: 337739385084747181}
   - component: {fileID: 337739385084747170}
-  m_Layer: 7
+  m_Layer: 5
   m_Name: CurrentEnergy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1306,11 +1306,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 127019111606292858, guid: 5693267aab04293488a874ee7438d958, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 33.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 127019111606292858, guid: 5693267aab04293488a874ee7438d958, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.52
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 127019111606292858, guid: 5693267aab04293488a874ee7438d958, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1348,6 +1348,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerHealthBar
       objectReference: {fileID: 0}
+    - target: {fileID: 127019111606292859, guid: 5693267aab04293488a874ee7438d958, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 127019111606292859, guid: 5693267aab04293488a874ee7438d958, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 127019111621880266, guid: 5693267aab04293488a874ee7438d958, type: 3}
       propertyPath: m_SizeDelta.y
       value: 102.577
@@ -1360,13 +1368,37 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 870
       objectReference: {fileID: 0}
+    - target: {fileID: 127019111621880267, guid: 5693267aab04293488a874ee7438d958, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 127019113199648834, guid: 5693267aab04293488a874ee7438d958, type: 3}
+      propertyPath: m_OverridePixelPerfect
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 127019113199648834, guid: 5693267aab04293488a874ee7438d958, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 127019113199648835, guid: 5693267aab04293488a874ee7438d958, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 127019113199648958, guid: 5693267aab04293488a874ee7438d958, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4426311241328775550, guid: 5693267aab04293488a874ee7438d958, type: 3}
       propertyPath: m_SizeDelta.x
       value: 499.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5869410584405669622, guid: 5693267aab04293488a874ee7438d958, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7302385366714316725, guid: 5693267aab04293488a874ee7438d958, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5693267aab04293488a874ee7438d958, type: 3}

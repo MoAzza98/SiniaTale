@@ -31,6 +31,7 @@ public class Health : MonoBehaviour
 
     [SerializeField] GameObject damageNumberPrefab;
     private GameViewManager GManager;
+    private PlayerMovement pMovement;
 
     public int GetCurrentHealth()
     {
@@ -49,6 +50,7 @@ public class Health : MonoBehaviour
         if (isPlayer)
         {
             GManager = GameObject.Find("GameManager").GetComponent<GameViewManager>();
+            pMovement = GetComponent<PlayerMovement>();
         }
 
         myHealthBar = GetComponentInChildren<HPBar>();
@@ -123,6 +125,7 @@ public class Health : MonoBehaviour
         if (health <= 0 && isPlayer)
         {
             GManager.GameOver();
+            pMovement.enabled = false;
             Debug.Log("You died");
         }
         else if (health <= 0 && !isPlayer)

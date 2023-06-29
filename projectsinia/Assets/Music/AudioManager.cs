@@ -30,6 +30,7 @@ public class AudioManager : MonoBehaviour
             audioSource.Stop();
             audioSource.clip = bossMusic;
             audioSource.loop = true;
+            audioSource.volume = 0.207f;
             audioSource.Play();
 
             isPlayingBossMusic = true;

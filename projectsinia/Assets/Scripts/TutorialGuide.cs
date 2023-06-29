@@ -5,15 +5,15 @@ using TMPro;
 
 public class TutorialGuide : MonoBehaviour
 {
-    [TextArea]
+    [TextArea(5,10)]
     public string dashText;
-    [TextArea]
+    [TextArea(5,10)]
     public string moveText;
-    [TextArea]
+    [TextArea(5,10)]
     public string rewindText;
-    [TextArea]
+    [TextArea(5,10)]
     public string attackText;
-    [TextArea]
+    [TextArea(5,10)]
     public string wallJumpText;
 
     [SerializeField] private GameObject infoPanel;

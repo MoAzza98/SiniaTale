@@ -19,7 +19,14 @@ public class WalletConnectionStatus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (walletConnected)
+        {
+            WalletConnected();
+        }
+        else
+        {
+            WalletDisconnected();
+        }
     }
 
     public void WalletConnected()

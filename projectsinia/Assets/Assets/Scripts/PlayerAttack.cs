@@ -16,6 +16,7 @@ public class PlayerAttack : MonoBehaviour
     private GameObject player;
     private GameViewManager GM;
 
+    private float currentCooldown = 0f;
     private bool energyDepleted = false;
     private float timeToAttack = 0.1f;
     private float timer = 0f;
@@ -26,6 +27,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float energy = 100f;
     [SerializeField] private float energyCost = 10f;
     [SerializeField] private float rechargeRate = 30f;
+    [SerializeField] private float rechargeCooldown = 3f;
     [SerializeField] private TextMeshProUGUI energyNum;
 
 
@@ -46,6 +48,7 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //Attacking is set to true, used in animationevent to activate the hitbox when the animation starts
         if (Input.GetKeyDown(KeyCode.F))
         {
@@ -56,7 +59,7 @@ public class PlayerAttack : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Mouse0))
             {
-
+                currentCooldown = 0f;
                 SpecialAttack();
                 energy -= energyCost * Time.deltaTime;
                 GM.energyScore = energy;
@@ -69,6 +72,12 @@ public class PlayerAttack : MonoBehaviour
             }
             else
             {
+                if (currentCooldown >= rechargeCooldown)
+                {
+                    energy += rechargeRate * Time.deltaTime;
+                    GM.energyScore = energy;
+                    energyNum.SetText(Mathf.RoundToInt(energy).ToString());
+                }
                 SpecialAttackEnded();
             }
         } else
@@ -83,6 +92,9 @@ public class PlayerAttack : MonoBehaviour
                 energyDepleted = false;
             }
         }
+
+        currentCooldown += Time.deltaTime;
+
         /*
         if (specialAttacking)
         {

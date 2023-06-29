@@ -307,6 +307,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100000
   isPlayer: 1
+  isBoss: 0
+  thanksPanel: {fileID: 0}
   invincibilityTime: 1
   touchEnemyKnockbackX: 0
   touchEnemyKnockbackY: 0
@@ -793,6 +795,7 @@ MonoBehaviour:
   energy: 100
   energyCost: 20
   rechargeRate: 30
+  rechargeCooldown: 2
   energyNum: {fileID: 337739384962398815}
 --- !u!1 &337739384962398813
 GameObject:

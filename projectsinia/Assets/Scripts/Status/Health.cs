@@ -9,6 +9,8 @@ public class Health : MonoBehaviour
     [SerializeField] int health = 100;
 
     [SerializeField] bool isPlayer;
+    [SerializeField] private bool isBoss;
+    [SerializeField] private GameObject thanksPanel;
 
     #region take damage and knockback
     Rigidbody2D myRigidBody;
@@ -159,6 +161,10 @@ public class Health : MonoBehaviour
         }
         else if (health <= 0 && !isPlayer)
         {
+            if (isBoss)
+            {
+                thanksPanel.SetActive(true);
+            }
             myAnimator.SetTrigger("Die");
             myRigidBody.constraints = RigidbodyConstraints2D.FreezePositionX;
             GetComponent<EnemyMovement>().killEnemy();

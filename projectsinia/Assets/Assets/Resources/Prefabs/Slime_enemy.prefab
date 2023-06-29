@@ -112,7 +112,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1759895761
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 4723107735738678597, guid: 2fc74fa7747dc0049add021cd64d7a48, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -206,6 +206,9 @@ MonoBehaviour:
   chaseSpeed: 5
   attackDistance: 1
   knockbackInvincibilityDuration: 0.1
+  _playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!61 &7324939858783083070
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -257,11 +260,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29141aa9982003242ae6759b2b0494b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 25
+  health: 20
   isPlayer: 0
+  isBoss: 0
+  thanksPanel: {fileID: 0}
   invincibilityTime: 0.1
+  touchEnemyKnockbackX: 0
+  touchEnemyKnockbackY: 0
   healthBarPrefab: {fileID: 347349928545259580, guid: 451836bcdc970b04e83192acaaa64dab, type: 3}
   damageNumberPrefab: {fileID: 6769292493534465812, guid: d05d5ac3de0d1104ca9a6fbf91c21717, type: 3}
+  despawnTime: 3
+  gameOverTime: 3
 --- !u!114 &6369599626746757901
 MonoBehaviour:
   m_ObjectHideFlags: 0

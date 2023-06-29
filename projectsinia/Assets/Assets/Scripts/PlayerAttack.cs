@@ -24,7 +24,9 @@ public class PlayerAttack : MonoBehaviour
     [HideInInspector] public bool attacking = false;
     [HideInInspector] public bool specialAttacking = false;
 
+
     [SerializeField] private float energy = 100f;
+    [SerializeField] private float maxEnergy = 100f;
     [SerializeField] private float energyCost = 10f;
     [SerializeField] private float rechargeRate = 30f;
     [SerializeField] private float rechargeCooldown = 3f;
@@ -59,9 +61,16 @@ public class PlayerAttack : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Mouse0))
             {
+                if(energy > 100)
+                {
+                    energy = 100;
+                }
                 currentCooldown = 0f;
                 SpecialAttack();
-                energy -= energyCost * Time.deltaTime;
+                if (energy <= maxEnergy && energy > 0)
+                {
+                    energy -= energyCost * Time.deltaTime;
+                }
                 GM.energyScore = energy;
                 // Debug.Log(GM.energyScore);
                 if (energy < 0)
@@ -72,9 +81,12 @@ public class PlayerAttack : MonoBehaviour
             }
             else
             {
-                if (currentCooldown >= rechargeCooldown)
+                if(currentCooldown >= rechargeCooldown)
                 {
-                    energy += rechargeRate * Time.deltaTime;
+                    if(energy < maxEnergy && energy > 0)
+                    {
+                        energy += rechargeRate * Time.deltaTime;
+                    }
                     GM.energyScore = energy;
                     energyNum.SetText(Mathf.RoundToInt(energy).ToString());
                 }
@@ -93,6 +105,7 @@ public class PlayerAttack : MonoBehaviour
             }
         }
 
+        Debug.Log("slider value: " + GM.energyScore + " energy value: " + energy);
         currentCooldown += Time.deltaTime;
 
         /*

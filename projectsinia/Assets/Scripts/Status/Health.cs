@@ -160,6 +160,7 @@ public class Health : MonoBehaviour
         else if (health <= 0 && !isPlayer)
         {
             myAnimator.SetTrigger("Die");
+            
             myRigidBody.constraints = RigidbodyConstraints2D.FreezePositionX;
             GetComponent<EnemyMovement>().killEnemy();
 

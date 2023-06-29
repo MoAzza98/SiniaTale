@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class SceneController : MonoBehaviour
 {
+    [SerializeField] private GameObject LoadScreen;
+    private float loadCurrent = 0f;
+    private float loadTime = 1.5f;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,8 +18,12 @@ public class SceneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
+        loadCurrent += Time.deltaTime;
 
+        if(loadCurrent > loadTime)
+        {
+            LoadScreen.SetActive(false);
+        }
+    }
 
 }

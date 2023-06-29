@@ -295,7 +295,7 @@ public class EnemyMovement : MonoBehaviour
 
             if (!postDeathPatrol)
             {
-                Debug.Log("flipped enemy facing 1");
+                // Debug.Log("flipped enemy facing 1");
                 FlipEnemyFacing();
             }
 

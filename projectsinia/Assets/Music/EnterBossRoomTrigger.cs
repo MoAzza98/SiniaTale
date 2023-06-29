@@ -14,7 +14,7 @@ public class EnterBossRoomTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag == "Player"){
-            Debug.Log("PLAYER ENTERED BOSS ROOM...");
+            
             audioManager.OnPlayerEnteredBossRoom();
         }
     }

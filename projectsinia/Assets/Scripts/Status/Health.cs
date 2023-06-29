@@ -38,6 +38,10 @@ public class Health : MonoBehaviour
     Animator myAnimator;
     [SerializeField] float gameOverTime = 3f;
 
+    private SpriteRenderer playerSpriteRenderer;
+    [SerializeField] float onDamageFlashRedDuration = 0.3f;
+    [SerializeField] float onDamageEnemyFlashDuration = 0.2f;
+
     public int GetCurrentHealth()
     {
         return health;
@@ -49,6 +53,7 @@ public class Health : MonoBehaviour
         myRigidBody = GetComponent<Rigidbody2D>();
         knockback = GetComponent<Knockback>();
         myAnimator = GetComponent<Animator>();
+        playerSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Start()
@@ -116,18 +121,15 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        // Debug.Log("Taking damage, value is : " + damage);
+        
         myHealthBar.SetCurrentHealth(-((float)damage));
         health -= damage;
-        // Debug.Log("Took Damage, your new health is: " + health);
-
-        //consider moving to attackarea to have diff types of damage popups.
-        // Vector3 spawnPosition = gameObject.transform.position;
-
-        // spawnPosition = new Vector3(-36.5f, -7.4f, 0f);
-        // Debug.Log("Took dam, logging spawnpos : " + spawnPosition);
-        // TextMeshProUGUI tmpText = Instantiate(damageNumberPrefab, spawnPosition, Quaternion.identity).GetComponentInChildren<TextMeshProUGUI>();
-        // tmpText.text = damage.ToString();
+        
+        if(isPlayer){
+            StartCoroutine(FlashRed());
+        }else{
+            StartCoroutine(EnemyTakeDamageFlash());
+        }
 
         if (health <= 0 && isPlayer)
         {
@@ -179,5 +181,19 @@ public class Health : MonoBehaviour
     void GameOver()
     {
         GManager.GameOver();
+    }
+
+    IEnumerator FlashRed(){
+        playerSpriteRenderer.color = ColorUtility.TryParseHtmlString("#D22D2D", out Color color) ? color : Color.white;
+        yield return new WaitForSeconds(onDamageFlashRedDuration);
+        playerSpriteRenderer.color = Color.white;
+
+    }
+
+    IEnumerator EnemyTakeDamageFlash(){
+        playerSpriteRenderer.color = ColorUtility.TryParseHtmlString("#EC4747", out Color color) ? color : Color.white;
+        yield return new WaitForSeconds(onDamageEnemyFlashDuration);
+        playerSpriteRenderer.color = Color.white;
+
     }
 }

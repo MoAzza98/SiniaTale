@@ -27,12 +27,12 @@ public class Health : MonoBehaviour
 
     #region Healthbar
     private GameObject healthbarObject;
-    [SerializeField] GameObject healthBarPrefab;
-    HPBar myHealthBar;
+    private GameObject healthBarPrefab;
+    private HPBar myHealthBar;
     #endregion
 
     [SerializeField] GameObject damageNumberPrefab;
-    private GameViewManager GManager;
+    [SerializeField] private GameViewManager GManager;
 
     [SerializeField] float despawnTime = 3f;
     Animator myAnimator;
@@ -54,6 +54,12 @@ public class Health : MonoBehaviour
         knockback = GetComponent<Knockback>();
         myAnimator = GetComponent<Animator>();
         playerSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        /*
+        if (isPlayer)
+        {
+            healthBarPrefab = GameObject.Find("PlayerHealthBar");
+        }
+        */
     }
 
     private void Start()
@@ -61,9 +67,14 @@ public class Health : MonoBehaviour
         if (isPlayer)
         {
             GManager = GameObject.Find("GameManager").GetComponent<GameViewManager>();
+            healthBarPrefab = GameObject.Find("PlayerHealthBar");
+            myHealthBar = healthBarPrefab.GetComponentInChildren<HPBar>();
+        }
+        else
+        {
+            myHealthBar = GetComponentInChildren<HPBar>();
         }
 
-        myHealthBar = GetComponentInChildren<HPBar>();
         myHealthBar.SetMaxHealth((float)health);
 
 

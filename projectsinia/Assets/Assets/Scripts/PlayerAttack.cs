@@ -44,7 +44,7 @@ public class PlayerAttack : MonoBehaviour
         specialAttack.transform.parent = specialAttackPivot.transform;
         attackArea.SetActive(attacking);
         energyNum.SetText(energy.ToString());
-        GM.energyScore = Mathf.RoundToInt(energy);
+        GM.energyScore = energy;
     }
 
     // Update is called once per frame

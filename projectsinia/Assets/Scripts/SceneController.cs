@@ -20,7 +20,7 @@ public class SceneController : MonoBehaviour
     {
         loadCurrent += Time.deltaTime;
 
-        if(loadCurrent > loadTime)
+        if(loadCurrent > loadTime && LoadScreen.activeSelf == true)
         {
             LoadScreen.SetActive(false);
         }

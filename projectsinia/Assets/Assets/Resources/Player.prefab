@@ -311,7 +311,6 @@ MonoBehaviour:
   invincibilityTime: 1
   touchEnemyKnockbackX: 0
   touchEnemyKnockbackY: 0
-  healthBarPrefab: {fileID: 0}
   damageNumberPrefab: {fileID: 0}
   GManager: {fileID: 0}
   despawnTime: 3
@@ -424,7 +423,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.255458, y: 0.16529655}
+  m_Offset: {x: 0.86727905, y: 0.16833496}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -435,7 +434,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.510916, y: 1.3305931}
+  m_Size: {x: 2.734558, y: 1.810669}
   m_EdgeRadius: 0
 --- !u!1 &337739383944012783
 GameObject:

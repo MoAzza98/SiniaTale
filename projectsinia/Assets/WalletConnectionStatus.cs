@@ -13,24 +13,56 @@ public class WalletConnectionStatus : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        walletConnected = (PlayerPrefs.GetInt("Name") != 0);
     }
 
     // Update is called once per frame
     void Update()
     {
+        WalletSetup();
     }
 
     public void WalletConnected()
+    {
+        walletConnected = true;
+
+        PlayerPrefs.SetInt("WalletConnection", (walletConnected ? 1 : 0));
+        PlayerPrefs.Save();
+        walletConnected = (PlayerPrefs.GetInt("Name") != 1);
+    }
+
+    public void WalletDisconnected()
+    {
+        walletConnected = false;
+
+        PlayerPrefs.SetInt("WalletConnection", (walletConnected ? 1 : 0));
+        PlayerPrefs.Save();
+        walletConnected = (PlayerPrefs.GetInt("Name") != 0);
+    }
+
+    public void WalletStatusDisconnected()
+    {
+
+        walletStatus.text = "Wallet disconnected";
+        walletConnectionLight.color = Color.red;
+    }
+
+    public void WalletStatusConnected()
     {
         walletStatus.text = "Wallet connected";
         walletConnectionLight.color = Color.green;
     }
 
-    public void WalletDisconnected()
+    public void WalletSetup()
     {
-        walletStatus.text = "Wallet disconnected";
-        walletConnectionLight.color = Color.red;
+        if (walletConnected)
+        {
+            WalletStatusConnected();
+        }
+        else
+        {
+            WalletStatusDisconnected();
+        }
     }
 
 }

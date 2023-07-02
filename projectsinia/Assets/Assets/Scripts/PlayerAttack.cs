@@ -43,7 +43,6 @@ public class PlayerAttack : MonoBehaviour
         specialAttack = Instantiate(specialAttackArea, new Vector3(specialAttackPivot.transform.position.x + 4f, specialAttackPivot.transform.position.y), transform.rotation);
         specialAttack.transform.parent = specialAttackPivot.transform;
         attackArea.SetActive(attacking);
-        energyNum.SetText(energy.ToString());
         GM.energyScore = energy;
     }
 
@@ -77,7 +76,6 @@ public class PlayerAttack : MonoBehaviour
                 {
                     energyDepleted = true;
                 }
-                energyNum.SetText(Mathf.RoundToInt(energy).ToString());
             }
             else
             {
@@ -97,7 +95,6 @@ public class PlayerAttack : MonoBehaviour
             SpecialAttackEnded();
             energy += rechargeRate * Time.deltaTime;
             GM.energyScore = energy;
-            energyNum.SetText(Mathf.RoundToInt(energy).ToString());
             if (energy >= 100)
             {
                 energy = 100;
@@ -105,7 +102,7 @@ public class PlayerAttack : MonoBehaviour
             }
         }
 
-        Debug.Log("slider value: " + GM.energyScore + " energy value: " + energy);
+        Debug.Log("slider value: " + GM.energyScore + " energy value: " + energy + "energy depleted is: " + energyDepleted);
         currentCooldown += Time.deltaTime;
 
         /*

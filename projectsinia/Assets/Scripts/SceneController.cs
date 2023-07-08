@@ -5,6 +5,7 @@ using UnityEngine;
 public class SceneController : MonoBehaviour
 {
     [SerializeField] private GameObject LoadScreen;
+    [SerializeField] private GameObject connectPanel;
     private float loadCurrent = 0f;
     private float loadTime = 1.5f;
 
@@ -24,6 +25,11 @@ public class SceneController : MonoBehaviour
         {
             LoadScreen.SetActive(false);
         }
+    }
+
+    public void ClosePanel()
+    {
+        connectPanel.SetActive(false);
     }
 
 }

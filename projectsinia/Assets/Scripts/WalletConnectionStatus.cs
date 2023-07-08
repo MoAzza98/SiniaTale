@@ -9,6 +9,7 @@ public class WalletConnectionStatus : MonoBehaviour
     [SerializeField] private bool walletConnected;
     [SerializeField] private TextMeshProUGUI walletStatus;
     [SerializeField] private Image walletConnectionLight;
+    [SerializeField] private GameObject connectedPanel;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,7 @@ public class WalletConnectionStatus : MonoBehaviour
         PlayerPrefs.SetInt("WalletConnection", (walletConnected ? 1 : 0));
         PlayerPrefs.Save();
         walletConnected = (PlayerPrefs.GetInt("Name") != 1);
+        connectedPanel.SetActive(true);
     }
 
     public void WalletDisconnected()
@@ -38,6 +40,7 @@ public class WalletConnectionStatus : MonoBehaviour
         PlayerPrefs.SetInt("WalletConnection", (walletConnected ? 1 : 0));
         PlayerPrefs.Save();
         walletConnected = (PlayerPrefs.GetInt("Name") != 0);
+        connectedPanel.SetActive(false);
     }
 
     public void WalletStatusDisconnected()

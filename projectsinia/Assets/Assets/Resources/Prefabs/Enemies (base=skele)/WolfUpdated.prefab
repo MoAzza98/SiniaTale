@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc0a8d10252ed5a43946b51829346b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 2
 --- !u!114 &5399719318441374502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,8 +238,8 @@ MonoBehaviour:
   invincibilityTime: 0
   touchEnemyKnockbackX: 0
   touchEnemyKnockbackY: 0
-  healthBarPrefab: {fileID: 347349928545259580, guid: 451836bcdc970b04e83192acaaa64dab, type: 3}
   damageNumberPrefab: {fileID: 6769292493534465812, guid: d05d5ac3de0d1104ca9a6fbf91c21717, type: 3}
+  GManager: {fileID: 0}
   despawnTime: 3
   gameOverTime: 3
   onDamageFlashRedDuration: 0.3

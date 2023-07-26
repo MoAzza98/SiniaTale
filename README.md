@@ -21,7 +21,7 @@ Our game design philosophy has always been simple; build enjoyable experiences. 
 
 As you progress through the world of Sinia, the world will unfold around you, offering up new and unique experiences. Our staged progression system tracks the level of progression you have on your NFTs on-chain through multiple stats such as kill count and raids completed, and allows high ranking players the chance to participate in exclusive ultra-hard content designed to challenge players who have invested time into the world, with a chance to win huge rewards.
 
-## Craft your very own hero
+## Craft your own hero
 
 Customise, create and play as your very own custom hero, embarking through the world with a unique experience as you socialise, cooperate with and compete against other players to turn your name into that of legend. Players who reach the top will be inscribed in the in-game lore scroll, immortalizing their achievements and names for all to see. This information can dynamically update and change as players compete for the title of the greatest. Giving the world a rich, player written history unlike any other thanks to blockchain technology. 
 
